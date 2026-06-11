@@ -476,69 +476,80 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
 
 
 
-/* ── HOME HERO — CITY + TYPOGRAPHY ── */
+
+/* ── HOME HERO — VIDEO BACKGROUND ── */
 .hero {
   height: 100vh; min-height: 700px;
   background: var(--black);
   position: relative; overflow: hidden;
 }
 
-/* City image — full bleed, warm treatment */
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
+/* Video layer */
+.hero-video-wrap {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
 }
-.hero-bg img {
-  width: 100%; height: 115%; object-fit: cover;
-  object-position: center 60%;
-  /* Preserve warm amber window lights, just darken */
-  filter: saturate(0.55) brightness(0.38) contrast(1.1);
-  animation: heroBgZoom 22s ease-out forwards;
+.hero-video-wrap video {
+  width: 100%; height: 100%; object-fit: cover;
+  /* Dark + slight desaturate — video is already moody */
+  filter: brightness(0.45) contrast(1.15) saturate(0.7);
+  transform: scale(1.04);
   will-change: transform;
 }
-@keyframes heroBgZoom {
-  from { transform: scale(1.08); }
-  to   { transform: scale(1.0);  }
+/* Fallback image if video fails */
+.hero-video-wrap .hero-fallback {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80') center/cover no-repeat;
+  filter: brightness(0.38) saturate(0.55);
 }
-/* Layered dark overlay: deep black left 65%, light vignette */
-.hero-bg::after {
+
+/* Multi-stop overlay: nearly opaque left → transparent right + vignette */
+.hero-video-wrap::after {
   content: '';
   position: absolute; inset: 0;
   background:
-    linear-gradient(100deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0.3) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.6) 100%);
+    linear-gradient(100deg,
+      rgba(0,0,0,0.97) 0%,
+      rgba(0,0,0,0.82) 40%,
+      rgba(0,0,0,0.45) 65%,
+      rgba(0,0,0,0.15) 100%),
+    linear-gradient(to bottom,
+      rgba(0,0,0,0.55) 0%,
+      transparent 20%,
+      transparent 75%,
+      rgba(0,0,0,0.75) 100%);
 }
 
-/* Subtle grid over everything */
+/* Subtle grid overlay */
 .hero-grid {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background-image:
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
-/* Vertical red accent line */
+/* Vertical red accent line — bottom-right */
 .hero-accent {
-  position: absolute; top: 0; right: 80px; z-index: 2;
-  width: 1px; height: 40vh;
-  background: linear-gradient(to bottom, transparent, rgba(155,37,32,0.7));
-  animation: fadeUp 1.2s 1.8s both;
+  position: absolute; top: 0; right: 72px; z-index: 2;
+  width: 1px; height: 38vh;
+  background: linear-gradient(to bottom, transparent, rgba(155,37,32,0.65));
+  opacity: 0; animation: fadeUp 1.2s 2s forwards;
 }
 
-/* Animated red dot */
+/* Pulsing red dot */
 .hero-dot {
   position: absolute; width: 5px; height: 5px;
   background: var(--tcg-red); border-radius: 50%; z-index: 2;
-  top: 42%; left: 68%;
-  box-shadow: 0 0 16px rgba(155,37,32,0.7);
-  animation: dotPulse 3s ease-in-out infinite;
+  top: 44%; left: 66%;
+  box-shadow: 0 0 14px rgba(155,37,32,0.8);
+  animation: dotPulse 2.8s ease-in-out infinite;
 }
 @keyframes dotPulse {
-  0%,100% { transform: scale(1); opacity: 0.6; }
-  50%      { transform: scale(2.2); opacity: 1; }
+  0%,100% { transform: scale(1);   opacity: 0.55; }
+  50%      { transform: scale(2.5); opacity: 1;    }
 }
 
-/* Top bar: location + label */
+/* Top bar */
 .hero-topbar {
   position: absolute; top: 100px; left: 80px; right: 80px; z-index: 3;
   display: flex; justify-content: space-between; align-items: center;
@@ -546,7 +557,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
 }
 .hero-eyebrow {
   font-size: 11px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(255,255,255,0.32);
+  color: rgba(255,255,255,0.3);
 }
 .hero-eyebrow span { color: var(--tcg-red); }
 .hero-index {
@@ -554,45 +565,45 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
   color: rgba(255,255,255,0.18);
   display: flex; align-items: center; gap: 10px;
 }
-.hero-index::before { content: ''; width: 28px; height: 1px; background: rgba(255,255,255,0.15); }
+.hero-index::before { content:''; width:28px; height:1px; background:rgba(255,255,255,0.15); }
 
-/* Content area — bottom third */
+/* Main content — pinned to bottom */
 .hero-bottom {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-  padding: 0 80px 80px;
+  padding: 0 80px 88px;
   display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;
 }
 
-.hero-copy { flex: 1; max-width: 860px; }
+.hero-copy { flex: 1; max-width: 880px; }
 
 .hero-heading {
   font-family: 'Inter Tight', sans-serif;
-  font-size: clamp(52px, 7.8vw, 112px);
+  font-size: clamp(50px, 7.5vw, 108px);
   font-weight: 900; line-height: 0.9;
   letter-spacing: -0.04em; text-transform: uppercase;
   margin-bottom: 32px;
-  opacity: 0; animation: fadeUp 1s 0.6s forwards;
+  opacity: 0; animation: fadeUp 1s 0.65s forwards;
 }
-.hero-heading .solid  { color: var(--white); display: block; }
+.hero-heading .solid  { color: var(--white);   display: block; }
 .hero-heading .outline{
   color: transparent; display: block;
-  -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
 }
 .hero-heading .accent { color: var(--tcg-red); display: block; }
 
 .hero-rule {
-  width: 48px; height: 1px; background: var(--tcg-red); margin-bottom: 20px;
+  width: 44px; height: 1px; background: var(--tcg-red); margin-bottom: 20px;
   opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
 }
 .hero-sub {
-  font-size: 14px; font-weight: 300; line-height: 1.85;
-  color: rgba(255,255,255,0.38); max-width: 400px;
+  font-size: 13px; font-weight: 300; line-height: 1.9;
+  color: rgba(255,255,255,0.38); max-width: 380px;
   opacity: 0; animation: fadeUp 0.8s 1.05s forwards;
 }
 
-/* Stats — right side */
+/* Stats — right */
 .hero-right-col {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 36px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 32px; flex-shrink: 0;
   opacity: 0; animation: fadeUp 0.8s 1.25s forwards;
 }
 .hero-stats { display: flex; flex-direction: column; gap: 24px; text-align: right; }
@@ -609,12 +620,17 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
   font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
   color: rgba(255,255,255,0.2);
 }
-.hero-scroll-line { width: 36px; height: 1px; background: rgba(255,255,255,0.15); }
+.hero-scroll-line { width: 36px; height: 1px; background:rgba(255,255,255,0.15); }
 
-/* Parallax on scroll via JS */
-.hero-bg img { will-change: transform; }
-
-/* Mobile */
+/* Mobile: skip video, show fallback image, hide stats */
+@media(max-width:900px){
+  .hero-video-wrap video { display: none; }
+  .hero-fallback { display: block !important; }
+  .hero-topbar { top: 85px; left: 32px; right: 32px; }
+  .hero-bottom { padding: 0 32px 72px; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero-heading { font-size: clamp(42px, 11vw, 78px); }
+  .hero-right-col, .hero-accent, .hero-dot { display: none; }
+}
 @media(max-width:900px){
   .hero-topbar { top: 85px; left: 32px; right: 32px; }
   .hero-bottom { padding: 0 32px 72px; flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -659,15 +675,22 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
   </div>
 </div>
 <section class="hero">
-  <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=85&auto=format" alt="" loading="eager" fetchpriority="high" id="heroBgImg">
+
+  <!-- VIDEO BACKGROUND -->
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="https://cdn.pixabay.com/video/2017/05/06/9005-216332135_medium.mp4" type="video/mp4">
+    </video>
+    <!-- Fallback for mobile / no-video -->
+    <div class="hero-fallback" style="display:none;"></div>
   </div>
+
   <div class="hero-grid"></div>
   <div class="hero-accent"></div>
   <div class="hero-dot"></div>
 
   <div class="hero-topbar">
-    <p class="hero-eyebrow">Bengaluru, India &nbsp;<span>·</span>&nbsp; Est. 2019</p>
+    <p class="hero-eyebrow">Bengaluru, India <span>&nbsp;·&nbsp;</span> Est. 2019</p>
     <div class="hero-index">Full-Spectrum Consulting</div>
   </div>
 
@@ -702,6 +725,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
       </div>
     </div>
   </div>
+
 </section>
 <div class="ticker">
   <div class="ticker-track">
@@ -1034,16 +1058,7 @@ if(ham&&ov){
   });
 }
 
-// Hero image parallax
-const heroBgImg = document.getElementById('heroBgImg');
-if(heroBgImg){
-  window.addEventListener('scroll', () => {
-    const offset = window.scrollY;
-    if(offset < window.innerHeight * 1.2){
-      heroBgImg.style.transform = 'scale(1.0) translateY(' + (offset * 0.15) + 'px)';
-    }
-  }, { passive: true });
-}
+// hero bg handled by video
 
 </script>
 </body>
