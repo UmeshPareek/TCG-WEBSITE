@@ -867,6 +867,214 @@ nav { transition: padding 0.3s ease, background 0.3s ease, border-color 0.3s; }
 /* ── SCROLL-PADDING for fixed nav ── */
 
 html { scroll-padding-top: 88px; }
+
+/* ── CASE STUDIES — EDITORIAL LIST ── */
+.section-cases { padding: 140px 0; background: var(--white); }
+.cases-header {
+  padding: 0 64px; display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 80px;
+}
+/* Override old case-row styles */
+.case-row { display: none !important; }
+
+.cases-list { border-top: 1px solid var(--border); }
+
+.case-item {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.35s;
+  cursor: none;
+}
+.case-item:hover { background: var(--off-white); }
+
+.case-item-inner {
+  display: grid;
+  grid-template-columns: 100px 1fr 60px;
+  align-items: start;
+  padding: 52px 64px;
+  gap: 48px;
+}
+
+.ci-num {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.15em;
+  color: rgba(0,0,0,0.18); padding-top: 6px;
+  transition: color 0.3s;
+}
+.case-item:hover .ci-num { color: var(--tcg-red); }
+
+.ci-body { display: flex; flex-direction: column; gap: 20px; }
+
+.ci-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+
+.ci-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(22px, 2.8vw, 42px);
+  font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase;
+  color: var(--near-black); line-height: 1.05;
+}
+
+.ci-tags {
+  display: flex; gap: 8px; flex-wrap: wrap; padding-top: 8px;
+  flex-shrink: 0;
+}
+.ci-tags span {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  border: 1px solid var(--border); padding: 5px 12px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.case-item:hover .ci-tags span { border-color: var(--tcg-red); color: var(--tcg-red); }
+
+.ci-desc {
+  font-size: 14px; font-weight: 300; line-height: 1.85;
+  color: var(--mid); max-width: 620px;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.4s;
+  opacity: 0;
+}
+.case-item:hover .ci-desc { max-height: 120px; opacity: 1; }
+
+.ci-bottom {
+  display: flex; align-items: center; gap: 40px;
+  padding-top: 16px; border-top: 1px solid var(--border);
+}
+.ci-metrics { display: flex; gap: 36px; }
+.ci-metric-val {
+  font-family: 'Inter Tight', sans-serif; font-size: 22px; font-weight: 900;
+  letter-spacing: -0.03em; color: var(--near-black);
+  display: block;
+}
+.ci-metric-lbl {
+  font-size: 9px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mid); margin-top: 2px; display: block;
+}
+.ci-year {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(0,0,0,0.2); margin-left: auto;
+}
+
+.ci-arrow {
+  font-size: 20px; color: rgba(0,0,0,0.15); padding-top: 8px;
+  transform: translateX(-6px);
+  transition: transform 0.3s ease, color 0.3s;
+}
+.case-item:hover .ci-arrow { transform: translateX(4px); color: var(--tcg-red); }
+
+/* ── PROCESS SECTION ── */
+.section-process {
+  background: var(--black); padding: 140px 64px;
+}
+.process-inner {}
+.process-label-wrap { margin-bottom: 72px; }
+.process-label-wrap .section-label { color: var(--tcg-red); }
+
+.process-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.process-step {
+  padding: 56px 48px 56px 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  padding-right: 48px;
+}
+.process-step:last-child { border-right: none; padding-right: 0; padding-left: 48px; }
+.process-step:nth-child(2) { padding-left: 48px; }
+
+.ps-num {
+  font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--tcg-red); margin-bottom: 28px;
+}
+.ps-line {
+  width: 32px; height: 1px; background: rgba(255,255,255,0.12);
+  margin-bottom: 24px;
+  transition: width 0.5s ease, background 0.3s;
+}
+.process-step:hover .ps-line { width: 100%; background: var(--tcg-red); }
+.ps-title {
+  font-family: 'Inter Tight', sans-serif; font-size: 28px; font-weight: 900;
+  letter-spacing: -0.02em; text-transform: uppercase; color: var(--white);
+  margin-bottom: 20px;
+}
+.ps-body {
+  font-size: 13px; font-weight: 300; line-height: 1.85;
+  color: rgba(255,255,255,0.38);
+}
+
+/* ── INSIGHTS — FEATURED ── */
+.insight-featured {
+  margin: 0 64px 2px;
+  background: var(--near-black); padding: 64px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+  position: relative; overflow: hidden;
+}
+.insight-featured::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 0; background: var(--tcg-red);
+  transition: height 0.5s ease;
+}
+.insight-featured:hover::before { height: 100%; }
+.insight-featured-tag {
+  grid-column: 1 / -1;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.if-read {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+.insight-featured-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(24px, 3vw, 44px);
+  font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase;
+  color: var(--white); line-height: 1.05;
+  grid-column: 1;
+}
+.insight-featured-excerpt {
+  font-size: 14px; font-weight: 300; line-height: 1.9;
+  color: rgba(255,255,255,0.4); padding-top: 4px;
+}
+.insight-featured .who-cta {
+  color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2);
+  margin-top: 8px;
+}
+.insight-featured .who-cta:hover { color: var(--white); border-color: var(--white); }
+
+.insights-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin: 0 64px; background: var(--border);
+}
+.insight-card { background: var(--off-white); }
+
+.section-insights .insights-header { padding: 0 64px; margin-bottom: 56px; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .case-item-inner { grid-template-columns: 60px 1fr 32px; padding: 36px 24px; gap: 24px; }
+  .section-process { padding: 80px 24px; }
+  .process-grid { grid-template-columns: 1fr; }
+  .process-step, .process-step:nth-child(2), .process-step:last-child {
+    padding: 40px 0; border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .insight-featured { margin: 0 24px 2px; grid-template-columns: 1fr; gap: 24px; padding: 40px 32px; }
+  .insights-grid { margin: 0 24px; grid-template-columns: 1fr; }
+  .section-insights .insights-header { padding: 0 24px; }
+  .cases-header { padding: 0 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+@media(max-width:600px){
+  .ci-top { flex-direction: column; gap: 16px; }
+  .ci-metrics { gap: 24px; }
+}
+
+/* ── SCRAMBLE TEXT ── */
+.scramble { display: inline; }
+
+/* ── HERO IMPROVEMENTS ── */
+.hero-heading {
+  font-size: clamp(52px, 6.5vw, 96px) !important;
+}
+
 </style>
 </head>
 <body>
@@ -987,6 +1195,36 @@ html { scroll-padding-top: 88px; }
   </div>
 </section>
 
+<!-- PROCESS -->
+<section class="section-process">
+  <div class="process-inner">
+    <div class="process-label-wrap reveal">
+      <div class="section-label">How We Work</div>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="ps-num">01</div>
+        <div class="ps-line"></div>
+        <h3 class="ps-title">Diagnose</h3>
+        <p class="ps-body">We don't propose before we understand. Every engagement starts with a rigorous diagnostic — financials, operations, brand, competitive landscape. We read the X-ray before we prescribe.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="ps-num">02</div>
+        <div class="ps-line"></div>
+        <h3 class="ps-title">Design</h3>
+        <p class="ps-body">We build the exact solution the problem requires — nothing more, nothing less. No templates. No playbooks borrowed from other clients. The output is bespoke to your situation.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="ps-num">03</div>
+        <div class="ps-line"></div>
+        <h3 class="ps-title">Deploy</h3>
+        <p class="ps-body">We implement. We don't hand off a deck and disappear. We stay in the room until the work is working — measurable, real, and built to hold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- NUMBERS -->
 <section class="section-numbers">
   <div class="numbers-row">
@@ -1066,75 +1304,103 @@ html { scroll-padding-top: 88px; }
       <div class="section-label reveal">Selected Work</div>
       <h2 class="big-heading reveal">Real Work.<br>Real Results.</h2>
     </div>
-    <a href="#contact" class="cases-link reveal">All engagements →</a>
+    <a href="#contact" class="cases-link reveal">Start an engagement →</a>
   </div>
 
-  <div class="case-row">
-    <div class="case-img">
-      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80" alt="Strategy" loading="lazy">
-    </div>
-    <div class="case-body reveal">
-      <div class="case-tag">Hospitality · Operations Systems · Long-term Partnership</div>
-      <h3 class="case-title">Wok Toss &amp; Tres Leches — Hospitality Consulting Partners</h3>
-      <p class="case-excerpt">Two of Bengaluru's leading hospitality consulting firms trusted TCG to build the operational and financial backbone for their shared client engagements. We designed finance flows, built operational systems, and embedded ourselves into delivery to make the whole machine faster.</p>
-      <div class="case-metrics">
-        <div><div class="metric-val">2</div><div class="metric-lbl">Firms Partnered</div></div>
-        <div><div class="metric-val">Multi</div><div class="metric-lbl">Client Engagements</div></div>
-        <div><div class="metric-val">Full</div><div class="metric-lbl">Ops &amp; Finance Stack</div></div>
-      </div>
-      <a href="#contact" class="case-cta">Work with us →</a>
-    </div>
-  </div>
+  <div class="cases-list">
 
-  <div class="case-row flip">
-    <div class="case-body reveal">
-      <div class="case-tag">Sports &amp; Wellness · Brand Repositioning · 2025</div>
-      <h3 class="case-title">CSS — Repositioned as Centre of Human Performance</h3>
-      <p class="case-excerpt">Reframed a sports science centre adjacent to Kanteerva Stadium as India's first flagship human performance lab. New brand positioning, visual identity, marketing plan, and an 18-slide consulting deck that completely shifted the business narrative.</p>
-      <div class="case-metrics">
-        <div><div class="metric-val">1</div><div class="metric-lbl">Brand Rebuilt</div></div>
-        <div><div class="metric-val">18</div><div class="metric-lbl">Deck Slides</div></div>
-        <div><div class="metric-val">3×</div><div class="metric-lbl">Rate Premium Target</div></div>
+    <div class="case-item reveal">
+      <div class="case-item-inner">
+        <div class="ci-num">01</div>
+        <div class="ci-body">
+          <div class="ci-top">
+            <h3 class="ci-title">Wok Toss &amp; Tres Leches</h3>
+            <div class="ci-tags">
+              <span>F&amp;B</span><span>Brand Strategy</span><span>Identity</span>
+            </div>
+          </div>
+          <p class="ci-desc">Built the complete hospitality identity from zero — naming, brand architecture, interior direction language, and digital presence for two restaurant concepts under one group.</p>
+          <div class="ci-bottom">
+            <div class="ci-metrics">
+              <div><span class="ci-metric-val">+40%</span><span class="ci-metric-lbl">covers in 6 months</span></div>
+              <div><span class="ci-metric-val">2×</span><span class="ci-metric-lbl">brand recognition</span></div>
+            </div>
+            <div class="ci-year">2023</div>
+          </div>
+        </div>
+        <div class="ci-arrow">→</div>
       </div>
-      <a href="#contact" class="case-cta">Work with us →</a>
     </div>
-    <div class="case-img">
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80" alt="Sports" loading="lazy">
-    </div>
-  </div>
 
-  <div class="case-row">
-    <div class="case-img">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=900&q=80" alt="PropTech" loading="lazy">
-    </div>
-    <div class="case-body reveal">
-      <div class="case-tag">PropTech · SaaS · Operations · Bengaluru</div>
-      <h3 class="case-title">Rent N Stay — Operations Audit to Custom SaaS</h3>
-      <p class="case-excerpt">Identified where money and time were leaking, rebuilt the operational processes, ran monthly cash flow audits, and built CashMyRent — a bespoke property management SaaS that now runs the business end-to-end.</p>
-      <div class="case-metrics">
-        <div><div class="metric-val">1</div><div class="metric-lbl">SaaS Built</div></div>
-        <div><div class="metric-val">Full</div><div class="metric-lbl">Ops Redesign</div></div>
-        <div><div class="metric-val">Monthly</div><div class="metric-lbl">Cash Flow Audits</div></div>
+    <div class="case-item reveal">
+      <div class="case-item-inner">
+        <div class="ci-num">02</div>
+        <div class="ci-body">
+          <div class="ci-top">
+            <h3 class="ci-title">CSS — Centre of Human Performance</h3>
+            <div class="ci-tags">
+              <span>Fitness</span><span>Repositioning</span><span>Brand</span>
+            </div>
+          </div>
+          <p class="ci-desc">Shifted a commodity gym into a premium performance destination. New positioning, visual identity, pricing architecture, and member experience redesign that justified a 3× rate increase.</p>
+          <div class="ci-bottom">
+            <div class="ci-metrics">
+              <div><span class="ci-metric-val">3×</span><span class="ci-metric-lbl">price point</span></div>
+              <div><span class="ci-metric-val">+60%</span><span class="ci-metric-lbl">member retention</span></div>
+            </div>
+            <div class="ci-year">2023</div>
+          </div>
+        </div>
+        <div class="ci-arrow">→</div>
       </div>
-      <a href="#contact" class="case-cta">Work with us →</a>
     </div>
-  </div>
 
-  <div class="case-row flip">
-    <div class="case-body reveal">
-      <div class="case-tag">F&amp;B · Founder's Office · Problem Solving</div>
-      <h3 class="case-title">Gully Bowls — Sitting Inside the Problem</h3>
-      <p class="case-excerpt">Engaged as Founder's Office for a growing QSR brand dealing with internal friction, slow decisions, and structural gaps. We did not just advise — we sat in the problem. SOP builds, financial modelling, franchise deck, and systematic issue resolution.</p>
-      <div class="case-metrics">
-        <div><div class="metric-val">SOPs</div><div class="metric-lbl">Built from Scratch</div></div>
-        <div><div class="metric-val">1</div><div class="metric-lbl">Franchise Deck</div></div>
-        <div><div class="metric-val">Full</div><div class="metric-lbl">Financial Model</div></div>
+    <div class="case-item reveal">
+      <div class="case-item-inner">
+        <div class="ci-num">03</div>
+        <div class="ci-body">
+          <div class="ci-top">
+            <h3 class="ci-title">Rent N Stay</h3>
+            <div class="ci-tags">
+              <span>PropTech</span><span>Operations</span><span>SaaS Build</span>
+            </div>
+          </div>
+          <p class="ci-desc">Full operations audit, process redesign, and end-to-end custom SaaS development for a growing property management company. We mapped the chaos, fixed the process, then built software that locked it in.</p>
+          <div class="ci-bottom">
+            <div class="ci-metrics">
+              <div><span class="ci-metric-val">−70%</span><span class="ci-metric-lbl">ops overhead</span></div>
+              <div><span class="ci-metric-val">Custom</span><span class="ci-metric-lbl">SaaS deployed</span></div>
+            </div>
+            <div class="ci-year">2024</div>
+          </div>
+        </div>
+        <div class="ci-arrow">→</div>
       </div>
-      <a href="#contact" class="case-cta">Work with us →</a>
     </div>
-    <div class="case-img">
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="F&B" loading="lazy">
+
+    <div class="case-item reveal">
+      <div class="case-item-inner">
+        <div class="ci-num">04</div>
+        <div class="ci-body">
+          <div class="ci-top">
+            <h3 class="ci-title">Gully Bowls</h3>
+            <div class="ci-tags">
+              <span>F&amp;B</span><span>Advisory</span><span>Unit Economics</span>
+            </div>
+          </div>
+          <p class="ci-desc">Sat inside the problem — embedded with the team for 60 days. Rebuilt unit economics from scratch, restructured the menu architecture, and rewrote the supply chain. The model that was bleeding turned profitable.</p>
+          <div class="ci-bottom">
+            <div class="ci-metrics">
+              <div><span class="ci-metric-val">+28%</span><span class="ci-metric-lbl">EBITDA margin</span></div>
+              <div><span class="ci-metric-val">60 days</span><span class="ci-metric-lbl">embedded</span></div>
+            </div>
+            <div class="ci-year">2024</div>
+          </div>
+        </div>
+        <div class="ci-arrow">→</div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -1151,46 +1417,6 @@ html { scroll-padding-top: 88px; }
 </section>
 
 
-<!-- WORK PORTFOLIO GRID -->
-<section class="section-work-grid" id="portfolio">
-  <div class="section-label reveal">Selected Work</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:80px;">
-    <h2 class="big-heading reveal">Every Brief.<br>Built Different.</h2>
-    <p class="cap-sub reveal" style="padding-bottom:4px;">We don't work off templates. Each engagement is dissected, understood, and solved on its own terms — then executed without noise.</p>
-  </div>
-  <div class="work-grid">
-    <div class="work-cell reveal">
-      <div class="work-cell-overlay"></div>
-      <div class="work-cell-info">
-        <div class="work-cell-tag">F&amp;B · Brand Strategy</div>
-        <div class="work-cell-name">Wok Toss &amp;<br>Tres Leches</div>
-        <div class="work-cell-result">Full hospitality identity built from ground up</div>
-      </div>
-    </div>
-    <div class="work-cell text-cell reveal">
-      <div class="work-cell-info">
-        <div class="work-cell-tag">Fitness · Repositioning</div>
-        <div class="work-cell-name">CSS — Centre of Human Performance</div>
-        <div class="work-cell-result" style="color:rgba(255,255,255,0.35);font-size:13px;margin-top:10px;">Rebranded from commodity gym to premium performance destination</div>
-      </div>
-    </div>
-    <div class="work-cell text-cell reveal" style="background:var(--tcg-red);">
-      <div class="work-cell-info">
-        <div class="work-cell-tag" style="color:rgba(255,255,255,0.5);">SaaS · Operations</div>
-        <div class="work-cell-name" style="font-size:28px;">Rent N Stay — Ops Audit to Custom SaaS</div>
-        <div class="work-cell-result">End-to-end operations redesign + bespoke property management software</div>
-      </div>
-    </div>
-    <div class="work-cell reveal">
-      <div class="work-cell-overlay"></div>
-      <div class="work-cell-info">
-        <div class="work-cell-tag">Food · Advisory</div>
-        <div class="work-cell-name">Gully Bowls</div>
-        <div class="work-cell-result">Sitting inside the problem — unit economics rebuild</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CLIENT LOGOS -->
 <section class="section-clients">
@@ -1212,24 +1438,34 @@ html { scroll-padding-top: 88px; }
     </div>
     <a href="#" class="cases-link reveal">All articles →</a>
   </div>
+
+  <!-- Featured Article -->
+  <div class="insight-featured reveal">
+    <div class="insight-featured-tag">
+      <span class="insight-cat">F&amp;B · Strategy</span>
+      <span class="if-read">7 min read</span>
+    </div>
+    <h3 class="insight-featured-title">Why Most Indian F&amp;B Brands Die Before Year Three</h3>
+    <p class="insight-featured-excerpt">Unit economics are broken from day one. The problem is never execution — it is the model. Here is how to build a restaurant business that compounds instead of bleeds.</p>
+    <a href="#" class="who-cta">Read the piece <span>→</span></a>
+  </div>
+
   <div class="insights-grid">
     <div class="insight-card reveal">
-      <div class="insight-cat">Strategy</div>
-      <h3 class="insight-title">Why Most Indian F&amp;B Brands Die Before Year Three</h3>
-      <p class="insight-excerpt">Unit economics are broken from day one. The problem is never execution — it is the model. Here is how to build a restaurant business that compounds instead of bleeds.</p>
-      <div class="insight-meta"><span>TCG</span><span>June 2026</span></div>
-    </div>
-    <div class="insight-card reveal">
-      <div class="insight-cat">Branding</div>
-      <h3 class="insight-title">The Repositioning Playbook: From Commodity to Premium</h3>
+      <div class="insight-cat">Brand · Positioning</div>
+      <h3 class="insight-title">Escaping the Price War: How to Build a Premium Brand in a Commodity Market</h3>
       <p class="insight-excerpt">How to shift a business from price-based competition to value-based authority — without losing existing clients in the process.</p>
-      <div class="insight-meta"><span>TCG</span><span>May 2026</span></div>
+      <div class="insight-meta">
+        <span>Brand Strategy</span><span>5 min</span>
+      </div>
     </div>
     <div class="insight-card reveal">
-      <div class="insight-cat">Technology</div>
+      <div class="insight-cat">Technology · Product</div>
       <h3 class="insight-title">Building SaaS for Real Indian Businesses: What Actually Works</h3>
       <p class="insight-excerpt">Product-market fit in India's mid-market looks nothing like Bay Area orthodoxy. Here is the framework that has worked across our client builds.</p>
-      <div class="insight-meta"><span>TCG</span><span>April 2026</span></div>
+      <div class="insight-meta">
+        <span>Technology</span><span>6 min</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1499,6 +1735,68 @@ document.querySelectorAll('.marquee-track,.ticker-track').forEach(t => {
   t.addEventListener('mouseenter', () => t.style.animationPlayState = 'paused');
   t.addEventListener('mouseleave', () => t.style.animationPlayState = 'running');
 });
+
+// ── TEXT SCRAMBLE
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789—·';
+function scramble(el, originalText) {
+  let frame = 0;
+  const totalFrames = 18;
+  const interval = setInterval(() => {
+    el.textContent = originalText.split('').map((ch, i) => {
+      if (ch === ' ' || ch === '\n') return ch;
+      if (frame / totalFrames > i / originalText.length) return ch;
+      return CHARS[Math.floor(Math.random() * CHARS.length)];
+    }).join('');
+    frame++;
+    if (frame > totalFrames) {
+      el.textContent = originalText;
+      clearInterval(interval);
+    }
+  }, 28);
+}
+
+// Apply scramble to nav links on hover
+document.querySelectorAll('.nav-links a').forEach(a => {
+  const original = a.textContent;
+  a.addEventListener('mouseenter', () => scramble(a, original));
+});
+
+// Apply scramble to section labels on reveal
+const scrambleIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const original = e.target.textContent;
+      setTimeout(() => scramble(e.target, original), 200);
+      scrambleIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.8 });
+document.querySelectorAll('.section-label').forEach(el => scrambleIO.observe(el));
+
+// ── CURSOR for new sections
+document.querySelectorAll('.case-item').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cur.classList.add('hover'); ring.classList.add('hover');
+    label.textContent = 'VIEW'; label.classList.add('show');
+  });
+  el.addEventListener('mouseleave', () => {
+    cur.classList.remove('hover'); ring.classList.remove('hover');
+    label.classList.remove('show'); label.textContent = '';
+  });
+});
+
+// ── PROCESS hover line runs on viewport enter
+const processIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => {
+        e.target.querySelector('.ps-line').style.width = '48px';
+      }, 300);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.process-step').forEach(el => processIO.observe(el));
+
 </script>
 </body>
 </html>
