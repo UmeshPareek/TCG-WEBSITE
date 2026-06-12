@@ -76,10 +76,11 @@ nav.scrolled{padding-top:13px;padding-bottom:13px;background:rgba(0,0,0,.98)}
 .nav-links a{font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
   color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-cta{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
-  color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.22);
-  padding:9px 22px;transition:all .2s;will-change:transform}
-.nav-cta:hover{background:#fff;color:var(--black)}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--black);text-decoration:none;background:#fff;
+  padding:10px 24px;border-radius:100px;border:none;
+  transition:background .2s,transform .15s;will-change:transform}
+.nav-cta:hover{background:rgba(255,255,255,.88)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:none;
   background:none;border:none;padding:4px}
 .hamburger span{display:block;width:22px;height:1px;background:#fff;
@@ -179,9 +180,10 @@ nav.scrolled{padding-top:13px;padding-bottom:13px;background:rgba(0,0,0,.98)}
 @keyframes tickerRoll{to{transform:translateX(-50%)}}
 
 /* SHARED */
-.section-label{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--red);margin-bottom:52px;display:flex;align-items:center;gap:14px}
-.section-label::before{content:'';width:26px;height:1px;background:var(--red)}
+.section-label{display:inline-flex;align-items:center;
+  font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:#fff;background:var(--red);padding:5px 14px;border-radius:100px;
+  margin-bottom:32px}
 .big-h{font-family:'Inter Tight',sans-serif;
   font-size:clamp(34px,4.2vw,64px);font-weight:900;line-height:1;
   letter-spacing:-.03em;text-transform:uppercase}
@@ -437,6 +439,129 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
   .cap-grid{grid-template-columns:1fr}
   .nums-row{grid-template-columns:1fr}
 }
+
+/* ── PRICING ── */
+.s-pricing{padding:120px 64px;background:var(--black)}
+.pricing-head{max-width:640px;margin:0 auto 72px;text-align:center}
+.pricing-head .section-label{margin:0 auto 28px}
+.pricing-head h2{font-family:'Inter Tight',sans-serif;
+  font-size:clamp(32px,4vw,58px);font-weight:900;line-height:1.0;
+  letter-spacing:-.03em;text-transform:uppercase;color:#fff;margin-bottom:18px}
+.pricing-head p{font-size:15px;font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,.38)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  border:1px solid rgba(255,255,255,.08);overflow:hidden;border-radius:2px}
+.pc{padding:48px 40px;background:rgba(255,255,255,.03);
+  display:flex;flex-direction:column;gap:0;
+  border-right:1px solid rgba(255,255,255,.07);
+  position:relative;transition:background .3s;cursor:none}
+.pc:last-child{border-right:none}
+.pc:hover{background:rgba(255,255,255,.06)}
+.pc-featured{background:rgba(155,37,32,.12) !important;border-color:rgba(155,37,32,.2) !important}
+.pc-featured:hover{background:rgba(155,37,32,.18) !important}
+.pc.featured{background:rgba(155,37,32,.12);border-color:rgba(155,37,32,.2)}
+.pc.featured:hover{background:rgba(155,37,32,.18)}
+.pc-tag{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red);margin-bottom:24px}
+.pc-featured .pc-tag,.pc.featured .pc-tag{color:#ff6b65}
+.pc-title{font-family:'Inter Tight',sans-serif;font-size:22px;font-weight:900;
+  letter-spacing:-.02em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.pc-price{font-family:'Inter Tight',sans-serif;font-size:32px;font-weight:900;
+  letter-spacing:-.03em;color:#fff;margin-bottom:6px}
+.pc-price-sub{font-size:11px;font-weight:300;color:rgba(255,255,255,.3);
+  margin-bottom:28px;letter-spacing:.02em}
+.pc-rule{width:100%;height:1px;background:rgba(255,255,255,.08);margin-bottom:28px}
+.pc-desc{font-size:13px;font-weight:300;line-height:1.8;
+  color:rgba(255,255,255,.42);margin-bottom:28px;flex:1}
+.pc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.pc-list li{font-size:12px;font-weight:300;color:rgba(255,255,255,.45);
+  display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.pc-list li::before{content:'—';color:var(--red);flex-shrink:0;margin-top:1px}
+.pc-cta{display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;
+  text-decoration:none;color:#fff;
+  border:1px solid rgba(255,255,255,.18);padding:11px 24px;border-radius:100px;
+  transition:all .25s;margin-top:auto;width:fit-content;will-change:transform}
+.pc-cta:hover{background:#fff;color:var(--black);border-color:#fff}
+.pc-cta-featured,.pc.featured .pc-cta{background:var(--red) !important;border-color:var(--red) !important}
+.pc-cta-featured:hover,.pc.featured .pc-cta:hover{background:#7a1c18 !important;border-color:#7a1c18 !important}
+.pricing-note{text-align:center;font-size:12px;font-weight:300;
+  color:rgba(255,255,255,.22);margin-top:48px;letter-spacing:.02em}
+
+/* ── ATMOSPHERIC BREAK ── */
+.s-break{position:relative;height:420px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.break-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(155,37,32,.18) 0%, transparent 70%),
+    var(--black);
+  z-index:0}
+.break-bg::before{content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px}
+.break-text{position:relative;z-index:1;text-align:center;padding:0 64px}
+.break-text h2{font-family:'Inter Tight',sans-serif;
+  font-size:clamp(28px,5vw,72px);font-weight:900;line-height:.95;
+  letter-spacing:-.04em;text-transform:uppercase}
+.break-text h2 .s{color:#fff}
+.break-text h2 .o{color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.2)}
+.break-text h2 .r{color:var(--red)}
+
+/* ── CONTACT REDESIGN ── */
+.s-contact{padding:120px 64px 100px;background:var(--black);position:relative;overflow:hidden}
+.s-contact::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(155,37,32,.12) 0%,transparent 60%)}
+.contact-inner{max-width:720px;margin:0 auto;text-align:center}
+.contact-inner .section-label{margin:0 auto 28px}
+.contact-big{font-family:'Inter Tight',sans-serif;
+  font-size:clamp(44px,7vw,100px);font-weight:900;line-height:.9;
+  letter-spacing:-.04em;text-transform:uppercase;color:#fff;
+  margin-bottom:20px}
+.contact-big em{font-style:normal;color:transparent;
+  -webkit-text-stroke:1.5px rgba(255,255,255,.25)}
+.contact-tagline{font-size:15px;font-weight:300;line-height:1.8;
+  color:rgba(255,255,255,.36);margin-bottom:56px}
+.contact-form{display:flex;flex-direction:column;gap:14px;text-align:left;margin-bottom:40px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form input,.contact-form textarea{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:300;
+  padding:16px 20px;border-radius:4px;outline:none;
+  transition:border-color .2s;width:100%;
+  -webkit-appearance:none}
+.contact-form input::placeholder,.contact-form textarea::placeholder{
+  color:rgba(255,255,255,.2)}
+.contact-form input:focus,.contact-form textarea:focus{
+  border-color:rgba(155,37,32,.6)}
+.contact-form textarea{min-height:130px;resize:vertical;font-family:'Inter',sans-serif}
+.contact-form .cf-submit{
+  background:var(--red);color:#fff;
+  font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  border:none;padding:17px 40px;border-radius:100px;cursor:none;
+  transition:background .25s,transform .15s;align-self:center;
+  margin-top:8px;will-change:transform}
+.contact-form .cf-submit:hover{background:#7a1c18}
+.contact-meta{display:flex;justify-content:center;gap:40px;
+  font-size:11px;font-weight:300;color:rgba(255,255,255,.22);letter-spacing:.08em}
+.contact-meta a{color:rgba(255,255,255,.22);text-decoration:none;
+  transition:color .2s}
+.contact-meta a:hover{color:rgba(255,255,255,.6)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .s-pricing,.s-contact{padding:80px 24px}
+  .pricing-grid{grid-template-columns:1fr}
+  .pc{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .s-break{height:280px}
+  .break-text{padding:0 24px}
+  .cf-row{grid-template-columns:1fr}
+  .contact-meta{flex-direction:column;gap:12px}
+}
+
 </style>
 </head>
 <body>
@@ -452,6 +577,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#team">Team</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Engage Us</a>
@@ -465,6 +591,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
     <li><a href="#services" class="mob-link">Services</a></li>
     <li><a href="#work" class="mob-link">Work</a></li>
     <li><a href="#team" class="mob-link">Team</a></li>
+    <li><a href="#pricing" class="mob-link">Pricing</a></li>
     <li><a href="#contact" class="mob-link">Contact</a></li>
   </ul>
   <p class="mob-footer">hello@theconsultinggroup.in</p>
@@ -713,6 +840,74 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
     </div>
   </div>
 </section>
+
+<!-- PRICING -->
+<section class="s-pricing" id="pricing">
+  <div class="pricing-head reveal">
+    <div class="section-label">Engagements</div>
+    <h2>Transparent.<br>Fixed. No Surprises.</h2>
+    <p>No hourly billing. No scope creep. Every engagement is scoped, priced upfront, and owned by us until it works.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pc reveal">
+      <div class="pc-tag">Starting Point</div>
+      <div class="pc-title">Diagnostic Sprint</div>
+      <div class="pc-price">₹ On Request</div>
+      <div class="pc-price-sub">2 weeks · Fixed scope</div>
+      <div class="pc-rule"></div>
+      <p class="pc-desc">We embed, diagnose, and deliver a clear picture of what's actually broken — with the first fix already started before we leave.</p>
+      <ul class="pc-list">
+        <li>Full business audit (finance, ops, brand)</li>
+        <li>Root problems identified, not symptoms</li>
+        <li>90-day action roadmap</li>
+        <li>One quick win implemented</li>
+      </ul>
+      <a href="#contact" class="pc-cta">Start here →</a>
+    </div>
+    <div class="pc pc-featured reveal">
+      <div class="pc-tag">Most Popular</div>
+      <div class="pc-title">Full Engagement</div>
+      <div class="pc-price">Scoped After Sprint</div>
+      <div class="pc-price-sub">Duration varies · Fixed fee</div>
+      <div class="pc-rule"></div>
+      <p class="pc-desc">We build the fix. End-to-end delivery — brand, systems, software, or whatever the problem demands. We stay until it works.</p>
+      <ul class="pc-list">
+        <li>Everything in Diagnostic Sprint</li>
+        <li>Full execution, not just advice</li>
+        <li>Custom deliverables to your situation</li>
+        <li>Measurable outcomes, defined upfront</li>
+      </ul>
+      <a href="#contact" class="pc-cta pc-cta-featured">Let's talk →</a>
+    </div>
+    <div class="pc reveal">
+      <div class="pc-tag">Ongoing</div>
+      <div class="pc-title">Advisory Retainer</div>
+      <div class="pc-price">Monthly</div>
+      <div class="pc-price-sub">3-month minimum</div>
+      <div class="pc-rule"></div>
+      <p class="pc-desc">A senior thinking partner in your corner — for the decisions that keep you up at night, without the cost of a full-time hire.</p>
+      <ul class="pc-list">
+        <li>Monthly deep-dive strategy sessions</li>
+        <li>On-call access for key decisions</li>
+        <li>Full capability set available</li>
+        <li>Quarterly performance reviews</li>
+      </ul>
+      <a href="#contact" class="pc-cta">Inquire →</a>
+    </div>
+  </div>
+  <p class="pricing-note reveal">Every engagement starts with a free 30-minute call. No pitch. No deck. Just a straight conversation about whether we're the right fit.</p>
+</section>
+
+<!-- ATMOSPHERIC BREAK -->
+<section class="s-break">
+  <div class="break-bg"></div>
+  <div class="break-text reveal">
+    <h2>
+      <span class="s">Clarity </span><span class="o">Beats</span><br><span class="r">Complexity.</span>
+    </h2>
+  </div>
+</section>
+
 <section class="s-mani">
   <div class="mani-ghost">TCG</div>
   <div class="mani-eye">Our Conviction</div>
@@ -826,7 +1021,7 @@ document.addEventListener('mousemove',e=>{
   cur.classList.toggle('d',!!dk);ring.classList.toggle('d',!!dk);
 });
 (function raf(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(raf);})();
-document.querySelectorAll('a,button,.cap-item,.case-item,.mq-item,.team-card,.n-block').forEach(el=>{
+document.querySelectorAll('a,button,.cap-item,.case-item,.mq-item,.team-card,.n-block,.pc').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.classList.add('h');ring.classList.add('h');});
   el.addEventListener('mouseleave',()=>{cur.classList.remove('h');ring.classList.remove('h');if(lbl){lbl.classList.remove('show');lbl.textContent='';}});
 });
@@ -878,7 +1073,7 @@ function scr(el,orig){
 document.querySelectorAll('.nav-links a').forEach(a=>{const o=a.textContent;a.addEventListener('mouseenter',()=>scr(a,o));});
 
 // Magnetic CTA
-document.querySelectorAll('.btn-red,.nav-cta').forEach(b=>{
+document.querySelectorAll('.btn-red,.nav-cta,.pc-cta,.cf-submit').forEach(b=>{
   b.addEventListener('mousemove',e=>{
     const r=b.getBoundingClientRect();
     b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.28}px,${(e.clientY-r.top-r.height/2)*.28}px)`;
