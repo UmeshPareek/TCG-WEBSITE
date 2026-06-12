@@ -302,18 +302,15 @@ nav.scrolled{padding-top:13px;padding-bottom:13px;background:rgba(0,0,0,.98)}
 .case-item:hover .ci-arr{transform:translateX(4px);color:var(--red)}
 
 /* MANIFESTO */
-.s-mani{padding:180px 64px;background:var(--black);text-align:center;
-  position:relative;overflow:hidden;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.mani-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:'Inter Tight',sans-serif;font-size:22vw;font-weight:900;
-  letter-spacing:-.05em;color:rgba(255,255,255,.022);
-  text-transform:uppercase;white-space:nowrap;pointer-events:none;user-select:none}
+.s-mani{padding:100px 64px 120px;background:var(--black);text-align:center;
+  position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.mani-ghost{display:none}
 .mani-eye{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
   color:rgba(155,37,32,.75);margin-bottom:44px}
 .mani-q{font-family:'Inter Tight',sans-serif;
-  font-size:clamp(32px,5vw,72px);font-weight:900;line-height:1.05;
-  letter-spacing:-.04em;color:#fff;text-transform:uppercase;
-  max-width:920px;margin:0 auto 48px;position:relative;z-index:1}
+  font-size:clamp(26px,3.8vw,56px);font-weight:900;line-height:1.2;
+  letter-spacing:-.03em;color:#fff;text-transform:uppercase;
+  max-width:760px;margin:0 auto 40px;position:relative;z-index:1}
 .mani-q em{font-style:normal;-webkit-text-stroke:1px rgba(255,255,255,.32);color:transparent}
 .mani-line{display:inline-block}
 .mani-sub{font-size:14px;font-weight:300;line-height:1.85;
@@ -432,7 +429,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
   .work-head{padding:0 24px;flex-direction:column;align-items:flex-start;gap:14px}
   .ci{grid-template-columns:56px 1fr 28px;padding:36px 24px;gap:20px}
   .team-grid{grid-template-columns:1fr;max-width:400px}
-  .s-mani{padding:80px 24px}
+  .s-mani{padding:64px 24px}
   footer{flex-direction:column;gap:18px;text-align:center;padding:36px 24px}
   .f-links{flex-wrap:wrap;justify-content:center}
 }
@@ -490,7 +487,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
   color:rgba(255,255,255,.22);margin-top:48px;letter-spacing:.02em}
 
 /* ── ATMOSPHERIC BREAK ── */
-.s-break{position:relative;height:420px;overflow:hidden;
+.s-break{position:relative;height:260px;overflow:hidden;
   display:flex;align-items:center;justify-content:center}
 .break-bg{position:absolute;inset:0;
   background:
@@ -557,7 +554,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
   .s-pricing,.s-contact{padding:80px 24px}
   .pricing-grid{grid-template-columns:1fr}
   .pc{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
-  .s-break{height:280px}
+  .s-break{height:200px}
   .break-text{padding:0 24px}
   .cf-row{grid-template-columns:1fr}
   .contact-meta{flex-direction:column;gap:12px}
@@ -743,6 +740,44 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
   .wc-right{align-items:flex-start;padding-top:0}
   .wc-metrics{text-align:left}
   .wc-metric{text-align:left}
+}
+
+
+/* ── MANIFESTO REDESIGN ── */
+.mani-lines{
+  display:flex;flex-direction:column;gap:0;
+  width:100%;max-width:800px;margin:0 auto 48px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.mani-line-item{
+  display:flex;align-items:center;gap:32px;
+  padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  text-align:left;
+}
+.mani-num{
+  font-family:'Inter Tight',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.2em;
+  color:var(--red);flex-shrink:0;width:28px;
+}
+.mani-stmt{
+  font-family:'Inter Tight',sans-serif;
+  font-size:clamp(22px,3vw,44px);font-weight:900;
+  line-height:1;letter-spacing:-.03em;text-transform:uppercase;
+  color:#fff;
+}
+.mani-stmt em{
+  font-style:normal;color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.3);
+}
+.mani-eye{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(155,37,32,.75);margin-bottom:40px}
+.mani-sub{font-size:14px;font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,.35);max-width:440px;
+  margin:0 auto;position:relative;z-index:1}
+@media(max-width:900px){
+  .mani-line-item{gap:20px;padding:22px 0}
+  .mani-stmt{font-size:clamp(20px,5vw,32px)}
 }
 
 </style>
@@ -1121,14 +1156,22 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);
 </section>
 
 <section class="s-mani">
-  <div class="mani-ghost">TCG</div>
-  <div class="mani-eye">Our Conviction</div>
-  <h2 class="mani-q">
-    <span class="reveal mani-line">Clarity beats complexity.</span><br>
-    <span class="reveal mani-line" style="transition-delay:.12s">Execution beats <em>strategy.</em></span><br>
-    <span class="reveal mani-line" style="transition-delay:.24s">Ownership beats advice.</span>
-  </h2>
-  <p class="mani-sub reveal">Most consultants observe from the outside. We build alongside you — because we have skin in the game too.</p>
+  <div class="mani-eye reveal">Our Conviction</div>
+  <div class="mani-lines">
+    <div class="mani-line-item reveal">
+      <span class="mani-num">01</span>
+      <h3 class="mani-stmt">Clarity beats <em>complexity.</em></h3>
+    </div>
+    <div class="mani-line-item reveal" style="transition-delay:.1s">
+      <span class="mani-num">02</span>
+      <h3 class="mani-stmt">Execution beats <em>strategy.</em></h3>
+    </div>
+    <div class="mani-line-item reveal" style="transition-delay:.2s">
+      <span class="mani-num">03</span>
+      <h3 class="mani-stmt">Ownership beats <em>advice.</em></h3>
+    </div>
+  </div>
+  <p class="mani-sub reveal">Most consultants observe from the outside.<br>We build alongside you — because we have skin in the game too.</p>
 </section>
 <section class="s-clients">
   <div class="cl-label">Brands We Have Worked With</div>
