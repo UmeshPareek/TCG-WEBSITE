@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Consulting Group · Operators, not advisors</title>
+<meta name="description" content="TCG began in 2019 as a finance brain that refused to stay in its lane. A full-spectrum consulting firm out of Bengaluru — operators who build, and stay until it works.">
+<meta name="theme-color" content="#EFEBE1">
+<link rel="icon" href="assets/logos/tcg.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+.founder { display:grid; grid-template-columns:1fr; gap:clamp(30px,5vw,64px); align-items:center; }
+@media(min-width:820px){ .founder{ grid-template-columns:.75fr 1.25fr; } }
+.founder .photo { position:relative; border:1px solid var(--rule-dk); overflow:hidden; }
+.founder .photo img { width:100%; aspect-ratio:3/4; object-fit:cover; filter: grayscale(.25) contrast(1.02); }
+.founder .photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(23,18,14,.5)); mix-blend-mode:multiply; }
+.founder .photo .cap{ position:absolute; left:16px; bottom:14px; z-index:2; font-family:var(--f-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--paper); }
+.origin { display:grid; grid-template-columns:1fr; gap:clamp(28px,4vw,56px); }
+@media(min-width:820px){ .origin{ grid-template-columns:1fr 1fr; } }
+.origin .then{ color:var(--crimson); font-family:var(--f-display); font-style:italic; }
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="curRing"></div><div id="curLabel"></div><div id="wipe"></div>
+<div id="loader"><div class="loader-mark"><span></span><span></span><span></span></div><div class="loader-text">The Consulting Group</div></div>
+
+<nav class="nav" aria-label="Primary">
+  <a href="/" class="nav-logo" aria-label="TCG home"><span class="mark"><i></i><i></i><i></i></span><span class="wordmark">TCG<small>The Consulting Group</small></span></a>
+  <ul class="nav-links"><li><a href="/services">What we do</a></li><li><a href="/sectors">Sectors</a></li><li><a href="/work">Work</a></li><li><a href="/about" aria-current="page">About</a></li></ul>
+  <div class="nav-right"><a href="/contact" class="btn magnetic"><span>Start a conversation</span><span class="arw">→</span></a><button class="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</nav>
+<div class="mobmenu" aria-hidden="true"><ul><li><a href="/services"><span class="idx">01</span>What we do</a></li><li><a href="/sectors"><span class="idx">02</span>Sectors</a></li><li><a href="/work"><span class="idx">03</span>Work</a></li><li><a href="/about"><span class="idx">04</span>About</a></li><li><a href="/contact"><span class="idx">05</span>Contact</a></li></ul><div class="mob-foot"><span>hello@theconsultinggroup.in</span><span>Bengaluru, India · Est. 2019</span></div></div>
+
+<section class="pagehead wrap" data-cur="light">
+  <span class="eyebrow">Who we are · Bengaluru · est. 2019</span>
+  <h1 data-lines>A finance brain that refused to stay in its <em>lane.</em></h1>
+  <p class="lead">A full-spectrum consulting firm out of Bengaluru. We take a business from a name on paper to a registered, branded, running company — one roof, one team. We're not consultants who talk. We're operators who build.</p>
+</section>
+
+<!-- ORIGIN -->
+<section class="section" style="padding-top:0" data-cur="light">
+  <div class="wrap">
+    <div class="origin reveal">
+      <div>
+        <span class="kicker crimson" style="color:var(--crimson)">A name</span>
+        <p class="lead mt-s">on a piece of paper. That's where most of our clients start — an idea, a registration, a founder who's been quoted a fortune to make it real, by five different vendors who each own one slice and none of the outcome.</p>
+      </div>
+      <div>
+        <span class="kicker crimson" style="color:var(--crimson)">Registered. Branded. Running.</span>
+        <p class="lead mt-s">A company that actually operates. We started in finance and modelling, then kept getting pulled into the next gap — the brand, the entity, the tool, the SOP — until refusing to stay in our lane became the whole business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section dark" data-cur="dark">
+  <div class="wrap">
+    <div class="founder reveal">
+      <div class="photo"><img src="assets/logos/founder.jpg" alt="Umesh Pareek, founder of The Consulting Group"><span class="cap">Umesh Pareek · Founder</span></div>
+      <div>
+        <span class="eyebrow">In the room, not on a retainer</span>
+        <p class="statement mt-m" style="font-size:clamp(1.6rem,3.4vw,2.6rem)">"We've built our own from zero. So we know exactly what it costs to get it wrong — and we stay until it's right."</p>
+        <p class="lead mt-m" style="color:var(--muted-dk)">TCG isn't a slide factory. The people who scope your problem are the people who build the fix and the people who are still there when it meets the real world. That's the difference between an advisor and an operator — and it's the only kind we hire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETHOS -->
+<section class="section" data-cur="light">
+  <div class="wrap">
+    <span class="eyebrow reveal">The operator ethos</span>
+    <h2 class="statement mt-s" data-lines>Four things we don't compromise on.</h2>
+    <div class="cap-grid mt-l reveal">
+      <div class="cap"><span class="num">01</span><h3>Built, not briefed</h3><p>We stay in the room until it works — model, entity, brand, tool, SOP.</p></div>
+      <div class="cap"><span class="num">02</span><h3>Full-stack</h3><p>Ground most firms split across five vendors, under one roof. No cracks.</p></div>
+      <div class="cap"><span class="num">03</span><h3>Fast</h3><p>A model this week, a registered entity next, a dashboard the week after.</p></div>
+      <div class="cap"><span class="num">04</span><h3>Skin in the game</h3><p>We fight hardest for the MSME — the businesses priced out of marquee thinking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENGALURU -->
+<section class="section paper-2" data-cur="light">
+  <div class="wrap ed-grid">
+    <div><span class="eyebrow reveal">Rooted in Bengaluru</span><h2 class="statement mt-s" data-lines>Local enough to show up. Sharp enough to matter.</h2></div>
+    <div style="align-self:end"><p class="lead reveal">We're a Bengaluru firm by choice — close to the operators we serve, in a city that builds. Someone actually shows up. That's not a tagline; for our hospitality and logistics clients, it's the whole point of hiring us instead of a deck-and-disappear consultancy.</p></div>
+  </div>
+</section>
+
+<section class="section dark cta-strip" data-cur="dark">
+  <div class="wrap">
+    <span class="eyebrow reveal">Let's meet</span>
+    <p class="big mt-m" data-lines>Friend <em>and</em> consultant. Warmth <em>and</em> edge.</p>
+    <div class="mt-l reveal" style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap"><a href="/contact" class="btn magnetic"><span>Start a conversation</span><span class="arw">→</span></a><a href="/work" class="btn ghost magnetic"><span>See the work</span><span class="arw">→</span></a></div>
+  </div>
+</section>
+
+<footer class="footer" data-cur="dark"><div class="wrap"><div class="f-top"><div><p class="f-promise">We solve <em>problems.</em> That's the whole business.</p><div class="sectors-line"><span class="kicker" style="color:var(--muted-dk)">F&amp;B</span><span class="kicker" style="color:var(--muted-dk)">· Logistics</span><span class="kicker" style="color:var(--muted-dk)">· PropTech</span><span class="kicker" style="color:var(--muted-dk)">· Sports</span><span class="kicker" style="color:var(--muted-dk)">· Retail</span></div></div><div><h4>Navigate</h4><ul><li><a href="/services">What we do</a></li><li><a href="/sectors">Sectors</a></li><li><a href="/work">Work</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="f-contact"><h4>Say hello</h4><ul><li><a href="mailto:hello@theconsultinggroup.in">hello@theconsultinggroup.in</a></li><li><a href="/contact">Start a conversation →</a></li><li style="color:var(--muted-dk)">Bengaluru, Karnataka, India</li><li style="color:var(--muted-dk)">Established 2019</li></ul></div></div><div class="f-bottom"><span>© <span id="yr"></span> The Consulting Group</span><span>Operators, not advisors · Bengaluru</span></div></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

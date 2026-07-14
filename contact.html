@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — The Consulting Group · Start a conversation</title>
+<meta name="description" content="Tell us the problem. Bengaluru-based, operator-run. hello@theconsultinggroup.in — a real, warm way in, not a cold form.">
+<meta name="theme-color" content="#17120E">
+<link rel="icon" href="assets/logos/tcg.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="cur-dark">
+<div id="cur"></div><div id="curRing"></div><div id="curLabel"></div><div id="wipe"></div>
+<div id="loader"><div class="loader-mark"><span></span><span></span><span></span></div><div class="loader-text">The Consulting Group</div></div>
+
+<nav class="nav on-dark" aria-label="Primary">
+  <a href="/" class="nav-logo" aria-label="TCG home"><span class="mark"><i></i><i></i><i></i></span><span class="wordmark">TCG<small>The Consulting Group</small></span></a>
+  <ul class="nav-links"><li><a href="/services">What we do</a></li><li><a href="/sectors">Sectors</a></li><li><a href="/work">Work</a></li><li><a href="/about">About</a></li></ul>
+  <div class="nav-right"><a href="/contact" class="btn magnetic" aria-current="page"><span>Start a conversation</span><span class="arw">→</span></a><button class="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</nav>
+<div class="mobmenu" aria-hidden="true"><ul><li><a href="/services"><span class="idx">01</span>What we do</a></li><li><a href="/sectors"><span class="idx">02</span>Sectors</a></li><li><a href="/work"><span class="idx">03</span>Work</a></li><li><a href="/about"><span class="idx">04</span>About</a></li><li><a href="/contact"><span class="idx">05</span>Contact</a></li></ul><div class="mob-foot"><span>hello@theconsultinggroup.in</span><span>Bengaluru, India · Est. 2019</span></div></div>
+
+<!-- full dark contact page -->
+<main class="dark" data-cur="dark" style="min-height:100vh;background:var(--ink);color:var(--paper)">
+<section class="pagehead wrap">
+  <span class="eyebrow">Start a conversation</span>
+  <h1 data-lines>Tell us the <em>problem.</em></h1>
+  <p class="lead" style="color:var(--muted-dk)">Not the symptom you were told about — the real one. Rough is fine. We'll come back with a tight scope and a clear number, usually within two working days. No six-month discovery theatre.</p>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- FORM: composes a pre-filled email by default (no backend needed).
+           To deliver straight to an inbox instead, create a free form at
+           https://formspree.io, then set FORM_ENDPOINT below to your endpoint
+           (e.g. "https://formspree.io/f/xxxxxx") and the form will POST there. -->
+      <form id="contactForm" novalidate>
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="company">Company / brand <span style="color:var(--muted-dk)">(optional)</span></label><input id="company" name="company" type="text"></div>
+        <div class="field"><label for="sector">What sector are you in?</label>
+          <select id="sector" name="sector">
+            <option>Food &amp; Beverage · Hospitality</option>
+            <option>Logistics &amp; Supply Chain</option>
+            <option>Real Estate · PropTech · Co-living</option>
+            <option>Sports · Wellness</option>
+            <option>Retail · Finance · Tech</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="msg">What's the problem?</label><textarea id="msg" name="message" rows="4" required placeholder="Where it hurts, and what you've tried."></textarea></div>
+        <button type="submit" class="btn magnetic" style="width:100%;justify-content:center"><span id="submitLabel">Send it over</span><span class="arw">→</span></button>
+        <p id="formNote" class="kicker" style="margin-top:16px;color:var(--muted-dk)">Opens your email app with everything filled in — hit send and it's on its way.</p>
+      </form>
+
+      <!-- direct lines -->
+      <div>
+        <span class="eyebrow">Or reach us directly</span>
+        <div class="mt-m">
+          <div class="contact-line"><span class="k">Email</span><span class="v"><a href="mailto:hello@theconsultinggroup.in">hello@theconsultinggroup.in</a></span></div>
+          <div class="contact-line"><span class="k">Studio</span><span class="v">Bengaluru, Karnataka, India</span></div>
+          <div class="contact-line"><span class="k">Since</span><span class="v">2019 · operator-run</span></div>
+        </div>
+        <p class="lead mt-l" style="color:var(--muted-dk)">We read every message ourselves — no gatekeeping inbox, no bot. If it's urgent, say so in the first line and we'll treat it that way.</p>
+        <div class="sectors-line mt-l" style="margin-top:32px">
+          <span class="kicker" style="color:var(--muted-dk)">We fight hardest for the</span><span class="kicker crimson" style="color:var(--crimson)">MSME.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" data-cur="dark" style="border-top:1px solid var(--rule-dk)"><div class="wrap"><div class="f-top"><div><p class="f-promise">We solve <em>problems.</em> That's the whole business.</p><div class="sectors-line"><span class="kicker" style="color:var(--muted-dk)">F&amp;B</span><span class="kicker" style="color:var(--muted-dk)">· Logistics</span><span class="kicker" style="color:var(--muted-dk)">· PropTech</span><span class="kicker" style="color:var(--muted-dk)">· Sports</span><span class="kicker" style="color:var(--muted-dk)">· Retail</span></div></div><div><h4>Navigate</h4><ul><li><a href="/services">What we do</a></li><li><a href="/sectors">Sectors</a></li><li><a href="/work">Work</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="f-contact"><h4>Say hello</h4><ul><li><a href="mailto:hello@theconsultinggroup.in">hello@theconsultinggroup.in</a></li><li style="color:var(--muted-dk)">Bengaluru, Karnataka, India</li><li style="color:var(--muted-dk)">Established 2019</li></ul></div></div><div class="f-bottom"><span>© <span id="yr"></span> The Consulting Group</span><span>Operators, not advisors · Bengaluru</span></div></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+// --- Contact form handling -------------------------------------------------
+const FORM_ENDPOINT = ""; // set to your Formspree endpoint to deliver to an inbox
+const form = document.getElementById('contactForm');
+const note = document.getElementById('formNote');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const d = Object.fromEntries(new FormData(form).entries());
+  if (FORM_ENDPOINT) {
+    try {
+      const res = await fetch(FORM_ENDPOINT, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) });
+      note.textContent = res.ok ? "Got it — we'll come back within two working days." : "Hmm, that didn't send. Email us at hello@theconsultinggroup.in.";
+      if (res.ok) form.reset();
+    } catch { note.textContent = "Network hiccup — email us at hello@theconsultinggroup.in."; }
+    return;
+  }
+  // default: compose a pre-filled email (no backend required)
+  const subject = encodeURIComponent(`New enquiry — ${d.company || d.name} (${d.sector})`);
+  const body = encodeURIComponent(
+    `Name: ${d.name}\nEmail: ${d.email}\nCompany: ${d.company||'—'}\nSector: ${d.sector}\n\nThe problem:\n${d.message}`);
+  window.location.href = `mailto:hello@theconsultinggroup.in?subject=${subject}&body=${body}`;
+  note.textContent = "Your email app should be opening — just hit send.";
+});
+</script>
+</body>
+</html>
