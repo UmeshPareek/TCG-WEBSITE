@@ -248,11 +248,11 @@ body.cur-view #curLabel { opacity: 1; }
 .hero-media { position: absolute; inset: 0; z-index: 0;
   background: var(--ink) url("../video/hero-poster.jpg") 60% center / cover no-repeat; }
 .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  object-position: 78% center; filter: saturate(1.1) contrast(1.05) brightness(.9); }
+  object-position: 62% center; filter: saturate(1.12) contrast(1.05) brightness(.94); }
 .hero-scrim { position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, var(--ink) 30%, rgba(23,18,14,.88) 50%, rgba(23,18,14,.34) 78%, rgba(23,18,14,.6) 100%),
-    linear-gradient(0deg, var(--ink) 2%, rgba(23,18,14,.18) 32%, transparent 58%); }
+    linear-gradient(90deg, var(--ink) 4%, rgba(23,18,14,.60) 40%, rgba(23,18,14,.15) 74%, rgba(23,18,14,.55) 100%),
+    linear-gradient(0deg, var(--ink) 1%, rgba(23,18,14,.12) 32%, transparent 58%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; min-height: 100svh; display: flex; flex-direction: column;
   padding-top: calc(var(--nav-h) + 30px); padding-bottom: 36px; }
 .hero-eyebrow { }
@@ -260,10 +260,11 @@ body.cur-view #curLabel { opacity: 1; }
   font-size: clamp(3rem, 9.2vw, 9rem); margin-top: auto; }
 .hero-h .rowmask { display: block; overflow: hidden; }
 .hero-h .rowmask > span { display: inline-block; }
-.hero-h .word-problems { position: relative; color: var(--crimson); font-style: normal; white-space: nowrap; }
+/* cream so it stays legible over the red ink; the crimson underline is the accent */
+.hero-h .word-problems { position: relative; color: var(--paper); font-style: normal; white-space: nowrap; }
 /* crimson underline draws in as the problem resolves — a confident editor's mark, not a strike */
 .hero-h .word-problems::after {
-  content: ""; position: absolute; left: 0; right: 4%; bottom: 6%; height: 3px; background: var(--crimson);
+  content: ""; position: absolute; left: 0; right: 4%; bottom: 4%; height: 5px; background: var(--crimson);
   transform: scaleX(0); transform-origin: left; }
 .hero-h.solved .word-problems::after { transform: scaleX(1); transition: transform .6s .1s var(--e-expo); }
 .hero-tail { display: block; overflow: hidden; }
