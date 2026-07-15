@@ -23,8 +23,8 @@
   --muted-dk: #A39C8C;   /* muted on dark */
 
   /* Typography */
-  --f-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --f-body:    "General Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-display: "Clash Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-body:    "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --f-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Motion */
@@ -79,7 +79,7 @@ body::after {
 /* ---- Type scale (≈1.28) --------------------------------------------------*/
 .display {
   font-family: var(--f-display);
-  font-weight: 460;
+  font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.02em;
   font-optical-sizing: auto;
@@ -106,8 +106,10 @@ body::after {
   font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   color: var(--muted); max-width: 60ch; line-height: 1.55;
 }
-.serif-i { font-family: var(--f-display); font-style: italic; font-weight: 460; }
+.serif-i { font-family: var(--f-display); font-style: normal; font-weight: 600; }
 .crimson { color: var(--crimson); }
+/* accent words: clean crimson emphasis (no faux-italic — Clash Display is roman only) */
+em { font-style: normal; color: var(--crimson); font-weight: inherit; }
 
 /* ---- Layout helpers ------------------------------------------------------*/
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gut); }
@@ -224,7 +226,7 @@ body.cur-view #curLabel { opacity: 1; }
   clip-path: inset(0 0 100% 0); transition: clip-path .6s var(--e-expo); pointer-events: none; }
 .mobmenu.open { clip-path: inset(0 0 0 0); pointer-events: auto; }
 .mobmenu ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-.mobmenu a { font-family: var(--f-display); font-size: clamp(2.4rem, 11vw, 4.4rem); font-weight: 460; letter-spacing: -.02em; line-height: 1.12; display: inline-block; }
+.mobmenu a { font-family: var(--f-display); font-size: clamp(2.4rem, 11vw, 4.4rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; display: inline-block; }
 .mobmenu a .idx { font-family: var(--f-mono); font-size: 12px; color: var(--crimson); vertical-align: super; margin-right: 12px; }
 .mobmenu .mob-foot { margin-top: 44px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; color: var(--muted-dk); display: flex; flex-direction: column; gap: 6px; }
 
@@ -246,11 +248,11 @@ body.cur-view #curLabel { opacity: 1; }
 .hero canvas#field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .55; }
 .hero .wrap { position: relative; z-index: 2; width: 100%; }
 .hero-eyebrow { margin-bottom: 30px; }
-.hero-h { font-family: var(--f-display); font-weight: 420; line-height: 0.94; letter-spacing: -0.025em;
+.hero-h { font-family: var(--f-display); font-weight: 500; line-height: 0.94; letter-spacing: -0.025em;
   font-size: clamp(3rem, 9.2vw, 9rem); }
 .hero-h .rowmask { display: block; overflow: hidden; }
 .hero-h .rowmask > span { display: inline-block; }
-.hero-h .word-problems { position: relative; color: var(--crimson); font-style: italic; white-space: nowrap; }
+.hero-h .word-problems { position: relative; color: var(--crimson); font-style: normal; white-space: nowrap; }
 /* crimson underline draws in as the problem resolves — a confident editor's mark, not a strike */
 .hero-h .word-problems::after {
   content: ""; position: absolute; left: 0; right: 4%; bottom: 6%; height: 3px; background: var(--crimson);
@@ -274,9 +276,9 @@ body.cur-view #curLabel { opacity: 1; }
 /* ============================================================================
    BIG STATEMENT / EDITORIAL BLOCKS
    ========================================================================== */
-.statement { font-family: var(--f-display); font-weight: 420; line-height: 1.02; letter-spacing: -0.02em;
+.statement { font-family: var(--f-display); font-weight: 500; line-height: 1.02; letter-spacing: -0.02em;
   font-size: clamp(2rem, 5.2vw, 4.6rem); }
-.statement .crimson { font-style: italic; }
+.statement .crimson { font-style: normal; }
 .kicker { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
 /* two-column editorial row */
@@ -305,7 +307,7 @@ body.cur-view #curLabel { opacity: 1; }
 .sector-row:last-child { border-bottom: 1px solid var(--rule); }
 .dark .sector-row:last-child { border-bottom-color: var(--rule-dk); }
 .sector-row .idx { font-family: var(--f-mono); font-size: 12px; color: var(--crimson); }
-.sector-row .name { font-family: var(--f-display); font-size: clamp(1.6rem,4vw,3rem); font-weight: 420;
+.sector-row .name { font-family: var(--f-display); font-size: clamp(1.6rem,4vw,3rem); font-weight: 500;
   letter-spacing: -.02em; transition: transform .4s var(--e-expo), color .3s; }
 .sector-row .meta { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-align: right; max-width: 30ch; }
 .dark .sector-row .meta { color: var(--muted-dk); }
@@ -334,7 +336,7 @@ body.cur-view #curLabel { opacity: 1; }
 .cap:hover { background: var(--paper-2); }
 .dark .cap:hover { background: var(--ink-2); }
 .cap .num { font-family: var(--f-mono); font-size: 12px; color: var(--crimson); }
-.cap h3 { font-family: var(--f-display); font-size: clamp(1.3rem,2vw,1.7rem); font-weight: 460; margin: 22px 0 12px; letter-spacing: -.01em; }
+.cap h3 { font-family: var(--f-display); font-size: clamp(1.3rem,2vw,1.7rem); font-weight: 600; margin: 22px 0 12px; letter-spacing: -.01em; }
 .cap p { color: var(--muted); font-size: .98rem; max-width: 34ch; }
 .dark .cap p { color: var(--muted-dk); }
 .cap .cap-tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
@@ -382,7 +384,7 @@ body.cur-view #curLabel { opacity: 1; }
 .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule-dk); border: 1px solid var(--rule-dk); }
 @media (min-width: 820px){ .stats { grid-template-columns: repeat(4,1fr); } }
 .stat { background: var(--ink); padding: clamp(28px,4vw,52px) clamp(20px,3vw,36px); }
-.stat .big { font-family: var(--f-display); font-size: clamp(2.6rem,6vw,4.4rem); font-weight: 420; line-height: 1;
+.stat .big { font-family: var(--f-display); font-size: clamp(2.6rem,6vw,4.4rem); font-weight: 500; line-height: 1;
   letter-spacing: -.02em; color: var(--paper); }
 .stat .big .u { color: var(--crimson); }
 .stat .lab { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-dk); margin-top: 12px; }
@@ -397,8 +399,8 @@ body.cur-view #curLabel { opacity: 1; }
 .step:last-child { border-bottom: 1px solid var(--rule); }
 .dark .step:last-child { border-bottom-color: var(--rule-dk); }
 @media (min-width: 760px){ .step { grid-template-columns: 90px 22ch 1fr; } }
-.step .sn { font-family: var(--f-display); font-size: clamp(1.6rem,3vw,2.4rem); color: var(--crimson); font-style: italic; line-height: 1; }
-.step .st { font-family: var(--f-display); font-size: clamp(1.3rem,2.2vw,1.7rem); font-weight: 460; }
+.step .sn { font-family: var(--f-display); font-size: clamp(1.6rem,3vw,2.4rem); color: var(--crimson); font-style: normal; line-height: 1; }
+.step .st { font-family: var(--f-display); font-size: clamp(1.3rem,2.2vw,1.7rem); font-weight: 600; }
 .step .sd { color: var(--muted); max-width: 52ch; }
 .dark .step .sd { color: var(--muted-dk); }
 
@@ -407,20 +409,20 @@ body.cur-view #curLabel { opacity: 1; }
    ========================================================================== */
 .manifesto { background: var(--ink); color: var(--paper); position: relative; overflow: hidden; }
 .manifesto .wrap { position: relative; z-index: 2; }
-.manifesto .big-quote { font-family: var(--f-display); font-weight: 380; line-height: 1.06; letter-spacing: -.02em;
+.manifesto .big-quote { font-family: var(--f-display); font-weight: 500; line-height: 1.06; letter-spacing: -.02em;
   font-size: clamp(1.9rem, 4.6vw, 4rem); max-width: 20ch; }
-.manifesto .big-quote em { font-style: italic; color: var(--crimson); }
+.manifesto .big-quote em { font-style: normal; color: var(--crimson); }
 .manifesto .sig { margin-top: 44px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-dk); }
 .manifesto .watermark { position: absolute; right: -4%; bottom: -18%; font-family: var(--f-display);
-  font-size: clamp(14rem, 40vw, 40rem); line-height: 1; color: rgba(239,235,225,.03); font-style: italic; pointer-events: none; z-index: 1; }
+  font-size: clamp(14rem, 40vw, 40rem); line-height: 1; color: rgba(239,235,225,.03); font-style: normal; pointer-events: none; z-index: 1; }
 
 /* ============================================================================
    CTA STRIP
    ========================================================================== */
 .cta-strip { text-align: center; }
-.cta-strip .big { font-family: var(--f-display); font-size: clamp(2.2rem,6.5vw,5.5rem); font-weight: 420;
+.cta-strip .big { font-family: var(--f-display); font-size: clamp(2.2rem,6.5vw,5.5rem); font-weight: 500;
   line-height: 1.02; letter-spacing: -.02em; }
-.cta-strip .big em { font-style: italic; color: var(--crimson); }
+.cta-strip .big em { font-style: normal; color: var(--crimson); }
 
 /* ============================================================================
    FOOTER
@@ -428,8 +430,8 @@ body.cur-view #curLabel { opacity: 1; }
 .footer { background: var(--ink); color: var(--paper); padding-top: clamp(64px,8vw,110px); }
 .footer .f-top { display: grid; grid-template-columns: 1fr; gap: 44px; padding-bottom: 56px; border-bottom: 1px solid var(--rule-dk); }
 @media (min-width: 860px){ .footer .f-top { grid-template-columns: 1.4fr 1fr 1fr; } }
-.footer .f-promise { font-family: var(--f-display); font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 420; line-height: 1.1; letter-spacing: -.02em; max-width: 16ch; }
-.footer .f-promise em { font-style: italic; color: var(--crimson); }
+.footer .f-promise { font-family: var(--f-display); font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 500; line-height: 1.1; letter-spacing: -.02em; max-width: 16ch; }
+.footer .f-promise em { font-style: normal; color: var(--crimson); }
 .footer h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-dk); margin-bottom: 18px; }
 .footer ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .footer ul a, .footer .f-contact a { color: var(--paper); font-size: .95rem; position: relative; }
@@ -453,16 +455,16 @@ body.cur-view #curLabel { opacity: 1; }
 .contact-line { display: flex; align-items: baseline; gap: 14px; padding: 18px 0; border-top: 1px solid var(--rule); }
 .dark .contact-line { border-top-color: var(--rule-dk); }
 .contact-line .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); min-width: 90px; }
-.contact-line .v { font-family: var(--f-display); font-size: clamp(1.2rem,2.2vw,1.7rem); font-weight: 460; }
+.contact-line .v { font-family: var(--f-display); font-size: clamp(1.2rem,2.2vw,1.7rem); font-weight: 600; }
 .contact-line .v a:hover { color: var(--crimson); }
 
 /* ============================================================================
    PAGE HEADER (inner pages)
    ========================================================================== */
 .pagehead { padding-top: calc(var(--nav-h) + clamp(60px,9vw,130px)); padding-bottom: clamp(40px,6vw,80px); }
-.pagehead h1 { font-family: var(--f-display); font-weight: 420; line-height: 1; letter-spacing: -.025em;
+.pagehead h1 { font-family: var(--f-display); font-weight: 500; line-height: 1; letter-spacing: -.025em;
   font-size: clamp(2.6rem,8vw,7rem); }
-.pagehead h1 em { font-style: italic; color: var(--crimson); }
+.pagehead h1 em { font-style: normal; color: var(--crimson); }
 .pagehead .lead { margin-top: 26px; }
 
 /* logo strip marquee */
