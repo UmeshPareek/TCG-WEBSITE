@@ -1,7 +1,7 @@
 # TCG — The Consulting Group
 
 Official website for **The Consulting Group (TCG)** — a full-spectrum consulting
-firm in Bengaluru (est. 2019). One promise, everywhere: **we solve problems.**
+firm in Bengaluru. One promise, everywhere: **we solve problems.**
 
 > Operator's Editorial — ink + warm paper + one decisive crimson. Warm as a
 > friend, sharp as a consultant. Built for MSMEs and marquee brands alike.
@@ -69,4 +69,4 @@ Hosted on Vercel. Every push to `main` auto-deploys.
 ## Contact
 
 hello@theconsultinggroup.in
-Bengaluru, Karnataka, India · Established 2019
+Bengaluru, Karnataka, India
