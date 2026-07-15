@@ -70,3 +70,7 @@ Hosted on Vercel. Every push to `main` auto-deploys.
 
 hello@theconsultinggroup.in
 Bengaluru, Karnataka, India
+
+## Media credits
+
+- Hero background video: "Red Ink in Water" by Engin Akyurt via [Pexels](https://www.pexels.com/video/6069113/) (Pexels License, free to use). Self-hosted, muted, compressed at `assets/video/`.

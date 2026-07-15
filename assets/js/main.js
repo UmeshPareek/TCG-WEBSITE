@@ -148,60 +148,22 @@
     }
   }
 
-  /* -------------------------------------------------- Hero particle field
-     chaos -> order as headline resolves. Progressive, offscreen-paused. */
-  const canvas = document.getElementById('field');
-  if (canvas && !reduce && !touch) {
-    const ctx = canvas.getContext('2d');
-    let W, H, dpr = Math.min(devicePixelRatio||1, 2), pts = [], raf, running = true, settle = 0;
-    const N = 90;
-    function resize(){
-      const r = canvas.getBoundingClientRect();
-      W = canvas.width = r.width*dpr; H = canvas.height = r.height*dpr;
+  /* -------------------------------------------------- Hero background video */
+  const heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    if (reduce) {
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.pause();
+    } else {
+      const tryPlay = () => { const p = heroVideo.play(); if (p) p.catch(() => {}); };
+      tryPlay();
+      heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
+      // pause when the hero scrolls out of view (perf)
+      try {
+        new IntersectionObserver(e => { e[0].isIntersecting ? tryPlay() : heroVideo.pause(); },
+          { threshold: 0.05 }).observe(heroVideo);
+      } catch (_) {}
     }
-    function init(){
-      pts = [];
-      for (let i=0;i<N;i++){
-        const gx = (0.12 + 0.76*((i%15)/14)) * W;
-        const gy = (0.2 + 0.6*(Math.floor(i/15)/5)) * H;
-        pts.push({ x: Math.random()*W, y: Math.random()*H, gx, gy,
-          vx:(Math.random()-.5)*0.4, vy:(Math.random()-.5)*0.4 });
-      }
-    }
-    function draw(){
-      if(!running){ return; }
-      ctx.clearRect(0,0,W,H);
-      settle += (1 - settle) * 0.006; // ease toward order
-      for (const p of pts){
-        // blend chaos motion with pull to grid
-        p.x += p.vx*(1-settle); p.y += p.vy*(1-settle);
-        p.x += (p.gx - p.x)*0.012*settle;
-        p.y += (p.gy - p.y)*0.012*settle;
-        if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
-      }
-      // connective lines
-      ctx.strokeStyle = 'rgba(194,26,43,0.16)'; ctx.lineWidth = dpr*0.6;
-      for(let i=0;i<pts.length;i++){
-        for(let j=i+1;j<pts.length;j++){
-          const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=dx*dx+dy*dy;
-          if(d < (130*dpr)*(130*dpr)){
-            ctx.globalAlpha = (1 - d/((130*dpr)*(130*dpr))) * (0.3+0.7*settle);
-            ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.stroke();
-          }
-        }
-      }
-      ctx.globalAlpha = 1;
-      ctx.fillStyle = 'rgba(239,235,225,0.5)';
-      for(const p of pts){ ctx.beginPath(); ctx.arc(p.x,p.y,dpr*1.3,0,7); ctx.fill(); }
-      raf = requestAnimationFrame(draw);
-    }
-    resize(); init(); draw();
-    addEventListener('resize', () => { resize(); init(); });
-    // pause offscreen
-    new IntersectionObserver(e => {
-      running = e[0].isIntersecting;
-      if (running){ cancelAnimationFrame(raf); draw(); }
-    }, { threshold: 0 }).observe(canvas);
   }
 
   /* -------------------------------------------------- Sectors expand */

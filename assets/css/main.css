@@ -243,13 +243,21 @@ body.cur-view #curLabel { opacity: 1; }
 /* ============================================================================
    HERO
    ========================================================================== */
-.hero { min-height: 100svh; display: flex; align-items: center; position: relative; overflow: hidden;
-  background: var(--ink); color: var(--paper); padding-top: calc(var(--nav-h) + 24px); padding-bottom: 90px; }
-.hero canvas#field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .55; }
-.hero .wrap { position: relative; z-index: 2; width: 100%; }
-.hero-eyebrow { margin-bottom: 30px; }
-.hero-h { font-family: var(--f-display); font-weight: 500; line-height: 0.94; letter-spacing: -0.025em;
-  font-size: clamp(3rem, 9.2vw, 9rem); }
+.hero { min-height: 100svh; position: relative; overflow: hidden; background: var(--ink); color: var(--paper); }
+/* background video layer */
+.hero-media { position: absolute; inset: 0; z-index: 0;
+  background: var(--ink) url("../video/hero-poster.jpg") 60% center / cover no-repeat; }
+.hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  object-position: 62% center; filter: saturate(1.12) contrast(1.05) brightness(.94); }
+.hero-scrim { position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--ink) 4%, rgba(23,18,14,.60) 40%, rgba(23,18,14,.15) 74%, rgba(23,18,14,.55) 100%),
+    linear-gradient(0deg, var(--ink) 1%, rgba(23,18,14,.12) 32%, transparent 58%); }
+.hero-inner { position: relative; z-index: 2; width: 100%; min-height: 100svh; display: flex; flex-direction: column;
+  padding-top: calc(var(--nav-h) + 30px); padding-bottom: 36px; }
+.hero-eyebrow { }
+.hero-h { font-family: var(--f-display); font-weight: 500; line-height: 0.92; letter-spacing: -0.025em;
+  font-size: clamp(3rem, 9.2vw, 9rem); margin-top: auto; }
 .hero-h .rowmask { display: block; overflow: hidden; }
 .hero-h .rowmask > span { display: inline-block; }
 .hero-h .word-problems { position: relative; color: var(--crimson); font-style: normal; white-space: nowrap; }
@@ -260,8 +268,17 @@ body.cur-view #curLabel { opacity: 1; }
 .hero-h.solved .word-problems::after { transform: scaleX(1); transition: transform .6s .1s var(--e-expo); }
 .hero-tail { display: block; overflow: hidden; }
 .hero-tail .inner { display: inline-block; transform: translateY(110%); opacity: 0; }
-.hero-sub { margin-top: 34px; max-width: 46ch; font-size: clamp(1.05rem,1.4vw,1.28rem); color: var(--muted-dk); }
-.hero-cta { margin-top: 40px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+/* hero foot bar — sub + CTA on the left, a small proof block on the right */
+.hero-foot { margin-top: auto; padding-top: 26px; border-top: 1px solid var(--rule-dk);
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 36px; flex-wrap: wrap; }
+.hero-foot-main { max-width: 50ch; }
+.hero-sub { max-width: 44ch; font-size: clamp(1rem,1.3vw,1.2rem); color: var(--muted-dk); }
+.hero-cta { margin-top: 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.hero-meta { display: flex; gap: clamp(22px,3vw,46px); }
+.hero-meta > div { display: flex; flex-direction: column; gap: 3px; }
+.hero-meta b { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.7rem,2.8vw,2.5rem); line-height: 1; letter-spacing: -.02em; color: var(--paper); }
+.hero-meta span { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-dk); }
+@media (max-width: 620px){ .hero-meta { display: none; } .scroll-cue { display: none; } }
 .scroll-cue { position: absolute; left: var(--gut); bottom: 30px; z-index: 2; font-family: var(--f-mono);
   font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-dk);
   display: flex; align-items: center; gap: 10px; }
@@ -495,7 +512,7 @@ body.cur-view #curLabel { opacity: 1; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .12s !important; scroll-behavior: auto !important; }
   .reveal, [data-lines] { opacity: 1 !important; transform: none !important; }
   .hero-tail .inner, .hero-h .rowmask > span { transform: none !important; opacity: 1 !important; }
-  .hero canvas#field { display: none; }
+  .hero-media video { display: none; }
   body { cursor: auto; }
   #cur, #curRing, #curLabel { display: none; }
   .scroll-cue .bar::after { animation: none; }
