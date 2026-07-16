@@ -24,7 +24,7 @@
   --muted-dk: #A39C8C;   /* muted on dark */
 
   /* Typography */
-  --f-display: "Cabinet Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-display: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --f-body:    "Switzer", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --f-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
@@ -126,21 +126,35 @@ em { font-style: normal; color: var(--crimson); font-weight: inherit; }
 /* ============================================================================
    CUSTOM CURSOR
    ========================================================================== */
+/* Crimson dot leads (instant), a difference-blend ring trails behind it.
+   mix-blend-mode: difference inverts against whatever is underneath, so the
+   ring is always visible on black, paper OR the ink video — no theme toggling. */
 #cur { position: fixed; top: 0; left: 0; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--ink); z-index: 10000; pointer-events: none;
-  transform: translate(-50%,-50%); transition: width .25s, height .25s, background .25s; }
-#curRing { position: fixed; top: 0; left: 0; width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid rgba(23,18,14,.28); z-index: 9999; pointer-events: none;
-  transform: translate(-50%,-50%); transition: width .3s var(--e-expo), height .3s var(--e-expo), border-color .25s, background .25s; }
+  background: var(--crimson); z-index: 10000; pointer-events: none;
+  transform: translate(-50%,-50%); transition: opacity .25s var(--e-expo); }
+#curRing { position: fixed; top: 0; left: 0; width: 38px; height: 38px; border-radius: 50%;
+  border: 1.5px solid #fff; background: transparent; mix-blend-mode: difference;
+  z-index: 9999; pointer-events: none; transform: translate(-50%,-50%);
+  transition: width .4s var(--e-expo), height .4s var(--e-expo), border-radius .35s var(--e-expo),
+              background .3s, border-color .3s, opacity .3s; }
 #curLabel { position: fixed; top: 0; left: 0; z-index: 10001; pointer-events: none;
-  font-family: var(--f-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--paper); transform: translate(-50%,-50%); opacity: 0; transition: opacity .2s; white-space: nowrap; }
-body.cur-dark #cur { background: var(--paper); }
-body.cur-dark #curRing { border-color: rgba(239,235,225,.3); }
-body.cur-hover #curRing { width: 58px; height: 58px; border-color: var(--crimson); background: rgba(194,26,43,.06); }
+  font-family: var(--f-mono); font-size: 9px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--paper); transform: translate(-50%,-50%); opacity: 0; transition: opacity .25s; white-space: nowrap; }
+
+/* hover a link/button: the ring opens up and the dot gets out of the way */
+body.cur-hover #curRing { width: 62px; height: 62px; }
+body.cur-hover #cur { opacity: 0; }
+
+/* work tiles / labelled targets: solid crimson disc carrying the label */
 body.cur-view #cur { opacity: 0; }
-body.cur-view #curRing { width: 74px; height: 74px; background: var(--crimson); border-color: var(--crimson); }
+body.cur-view #curRing { width: 92px; height: 92px; background: var(--crimson); border-color: var(--crimson);
+  mix-blend-mode: normal; }
 body.cur-view #curLabel { opacity: 1; }
+
+/* text fields: an I-beam, so the cursor still tells you what it's for */
+body.cur-text #curRing { width: 2px; height: 30px; border-radius: 1px; background: #fff; border-color: transparent; }
+body.cur-text #cur { opacity: 0; }
+
 @media (hover: none), (pointer: coarse) { #cur, #curRing, #curLabel { display: none; } }
 
 /* ============================================================================

@@ -35,26 +35,34 @@
   const label = document.getElementById('curLabel');
   if (cur && ring && !touch && !reduce) {
     let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
+    let scale = 1, targetScale = 1;
     addEventListener('mousemove', e => {
       mx = e.clientX; my = e.clientY;
       cur.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
     });
+    // click squash — the cursor reacts to the press
+    addEventListener('mousedown', () => { targetScale = 0.78; });
+    addEventListener('mouseup',   () => { targetScale = 1; });
     const ease = () => {
       rx += (mx-rx)*0.16; ry += (my-ry)*0.16;
-      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      scale += (targetScale-scale)*0.2;
+      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%) scale(${scale.toFixed(3)})`;
       if (label) label.style.transform = `translate(${mx}px,${my+2}px) translate(-50%,-50%)`;
       requestAnimationFrame(ease);
     };
     ease();
-    // magnetic + hover states
-    const hoverSel = 'a, button, .tile, .sector-row, .magnetic, input, textarea, select';
+    // hover states
+    const hoverSel = 'a, button, .tile, .sector-row, .magnetic';
+    const textSel  = 'input, textarea, select';
     document.addEventListener('mouseover', e => {
+      if (e.target.closest(textSel)) { document.body.classList.add('cur-text'); return; }
       const t = e.target.closest(hoverSel);
       if (!t) return;
       document.body.classList.add('cur-hover');
       if (t.dataset.cursor && label){ label.textContent = t.dataset.cursor; document.body.classList.add('cur-view'); }
     });
     document.addEventListener('mouseout', e => {
+      if (e.target.closest(textSel)) document.body.classList.remove('cur-text');
       const t = e.target.closest(hoverSel);
       if (!t) return;
       document.body.classList.remove('cur-hover','cur-view');
@@ -69,14 +77,7 @@
       });
       el.addEventListener('mouseleave', () => { el.style.transform = ''; });
     });
-    // dark-section cursor inversion via IntersectionObserver on [data-cur]
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting && en.intersectionRatio > 0.5)
-          document.body.classList.toggle('cur-dark', en.target.dataset.cur === 'dark');
-      });
-    }, { threshold: [0.5] });
-    document.querySelectorAll('[data-cur]').forEach(s => io.observe(s));
+    // no dark/light toggling needed — the ring's difference blend inverts itself
   }
 
   /* -------------------------------------------------- Nav */
