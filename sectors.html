@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sectors — The Consulting Group · Range isn't a claim</title>
-<meta name="description" content="Five sectors TCG knows from the inside: F&B & Hospitality, Logistics & Supply Chain, Real Estate & Living, Sports & Wellness, Finance/Retail/Tech. 25 brands across them.">
+<meta name="description" content="Four sectors TCG knows from the inside: F&B & Hospitality, Logistics & Supply Chain, Real Estate & Living, Sports & Wellness. 21 brands across them.">
 <meta name="theme-color" content="#EFEBE1">
 <link rel="icon" href="assets/logos/tcg.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -12,7 +12,14 @@
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
-.sector-block { padding-block: clamp(56px,8vw,110px); border-top: 1px solid var(--rule); }
+.sector-block { padding-block: clamp(56px,8vw,110px); border-top: 1px solid var(--rule); position: relative; overflow: hidden; }
+/* signature move for this page: a giant ghosted index numeral behind each sector */
+.sector-block::before { content: attr(data-num); position: absolute; right: -1.5%; top: 50%;
+  transform: translateY(-50%); font-family: var(--f-display); font-weight: 800;
+  font-size: clamp(7rem, 18vw, 17rem); line-height: .8; letter-spacing: -.04em;
+  color: var(--ink); opacity: .05; pointer-events: none; z-index: 0; user-select: none; }
+.dark .sector-block::before { color: var(--paper); opacity: .06; }
+.sector-block .grid { position: relative; z-index: 1; }
 .dark .sector-block { border-top-color: var(--rule-dk); }
 .sector-block .grid { display: grid; grid-template-columns: 1fr; gap: clamp(28px,5vw,64px); }
 @media (min-width: 900px){ .sector-block .grid { grid-template-columns: .9fr 1.2fr; } }
@@ -36,7 +43,7 @@
 <div class="mobmenu" aria-hidden="true"><ul><li><a href="/services"><span class="idx">01</span>What we do</a></li><li><a href="/sectors"><span class="idx">02</span>Sectors</a></li><li><a href="/work"><span class="idx">03</span>Work</a></li><li><a href="/about"><span class="idx">04</span>About</a></li><li><a href="/contact"><span class="idx">05</span>Contact</a></li></ul><div class="mob-foot"><span>hello@theconsultinggroup.in</span><span>Bengaluru, India</span></div></div>
 
 <section class="pagehead wrap" data-cur="light">
-  <span class="eyebrow">Where we operate · 25 brands · 5 sectors</span>
+  <span class="eyebrow">Where we operate · 21 brands · 4 sectors</span>
   <h1 data-lines>Range isn't a claim. It's the <em>whole</em> point.</h1>
   <p class="lead">The real problem rarely lives in one department. So we operate across sectors — deep enough to be dangerous in each.</p>
 </section>
@@ -44,11 +51,11 @@
 <!-- 01 F&B -->
 <section class="section" style="padding:0" data-cur="light">
   <div class="wrap">
-    <div class="sector-block reveal" style="border-top:0">
+    <div class="sector-block reveal" data-num="01" style="border-top:0">
       <div class="grid">
-        <div><span class="idx-big">01 / 05</span><h2 class="big-name mt-s">Food &amp; Beverage · Hospitality</h2><p class="kicker" style="margin-top:14px">12 brands · our deepest sector</p></div>
+        <div><span class="idx-big">01 / 04</span><h2 class="big-name mt-s">Food &amp; Beverage · Hospitality</h2><p class="kicker" style="margin-top:14px">12 brands · our deepest sector</p></div>
         <div>
-          <p class="lead">Hospitality from the kitchen out — the machinery underneath, not the deck on top. Revenue systems, service SOPs, staffing, 252-item raw-material masters. Our specialist arm, Ekaay Hospitality, runs deepest: senior operators inside the business.</p>
+          <p class="lead">Hospitality from the kitchen out — the machinery underneath, not the deck on top. Our arm Ekaay runs deepest: senior operators inside the business.</p>
           <div class="brand-chips"><span>Wok Toss</span><span>Ekaay Hospitality</span><span>Hotel Sepoy Grande</span><span>The Classique</span><span>AARNA</span><span>Smash Brew</span><span>Atlantis Brewpub</span><span>Bungry's</span><span>Gully Bowls</span><span>Ninan's Burger</span><span>Safron Basil</span><span>Apna Gharana</span></div>
         </div>
       </div>
@@ -59,9 +66,9 @@
 <!-- 02 Logistics -->
 <section class="section dark" style="padding:0" data-cur="dark">
   <div class="wrap">
-    <div class="sector-block reveal" style="border-top:0">
+    <div class="sector-block reveal" data-num="02" style="border-top:0">
       <div class="grid">
-        <div><span class="idx-big">02 / 05</span><h2 class="big-name mt-s">Logistics &amp; Supply Chain</h2><p class="kicker" style="margin-top:14px;color:var(--muted-dk)">When the tool doesn't exist, we build it</p></div>
+        <div><span class="idx-big">02 / 04</span><h2 class="big-name mt-s">Logistics &amp; Supply Chain</h2><p class="kicker" style="margin-top:14px;color:var(--muted-dk)">When the tool doesn't exist, we build it</p></div>
         <div>
           <p class="lead" style="color:var(--muted-dk)">SP Freight's Placement OS — V1 to production across six versions, with broker ops, GST summaries and Tally-ready exports. Custom software where off-the-shelf doesn't fit.</p>
           <div class="brand-chips"><span>SP Freight Systems</span><span>SPFS Placement OS</span><span>Prime Logistics Solutions</span></div>
@@ -74,9 +81,9 @@
 <!-- 03 Real Estate -->
 <section class="section" style="padding:0" data-cur="light">
   <div class="wrap">
-    <div class="sector-block reveal">
+    <div class="sector-block reveal" data-num="03">
       <div class="grid">
-        <div><span class="idx-big">03 / 05</span><h2 class="big-name mt-s">Real Estate · PropTech · Co-living</h2><p class="kicker" style="margin-top:14px">Reads like home, not a listing</p></div>
+        <div><span class="idx-big">03 / 04</span><h2 class="big-name mt-s">Real Estate · PropTech · Co-living</h2><p class="kicker" style="margin-top:14px">Reads like home, not a listing</p></div>
         <div>
           <p class="lead">Naming, brand and investor structure for a managed co-living venture. And property-management SaaS for Rent N Stay / CashMyRent — rent, P&amp;L, check-in / out, staff incentives, one live platform.</p>
           <div class="brand-chips"><span>the switch.</span><span>Rent N Stay</span><span>CashMyRent</span></div>
@@ -89,27 +96,12 @@
 <!-- 04 Sports/Wellness -->
 <section class="section dark" style="padding:0" data-cur="dark">
   <div class="wrap">
-    <div class="sector-block reveal" style="border-top:0">
+    <div class="sector-block reveal" data-num="04" style="border-top:0">
       <div class="grid">
-        <div><span class="idx-big">04 / 05</span><h2 class="big-name mt-s">Sports · Human Performance · Wellness</h2><p class="kicker" style="margin-top:14px;color:var(--muted-dk)">From zero to launch in 60 days</p></div>
+        <div><span class="idx-big">04 / 04</span><h2 class="big-name mt-s">Sports · Human Performance · Wellness</h2><p class="kicker" style="margin-top:14px;color:var(--muted-dk)">From zero to launch in 60 days</p></div>
         <div>
           <p class="lead" style="color:var(--muted-dk)">A 60-day go-to-market sprint for the Centre of Human Performance — MOU, pricing, scope and a full proposal &amp; BOQ, from zero.</p>
           <div class="brand-chips"><span>Centre of Human Performance</span><span>FLOW</span><span>Physio Studio</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 Finance/Retail/Tech -->
-<section class="section" style="padding:0" data-cur="light">
-  <div class="wrap">
-    <div class="sector-block reveal">
-      <div class="grid">
-        <div><span class="idx-big">05 / 05</span><h2 class="big-name mt-s">Finance · Retail · Technology</h2><p class="kicker" style="margin-top:14px">The cross-sector spine</p></div>
-        <div>
-          <p class="lead">Financial models from raw bank-statement data, retail concepts like Wakefit's 3,000 sq ft food-floor, and products for teams that outgrew their tools. The spine through every sector we touch.</p>
-          <div class="brand-chips"><span>Wekitsak</span><span>Wakefit</span><span>All Cuisine Pvt. Ltd.</span><span>Wendz</span><span>SmartNode</span></div>
         </div>
       </div>
     </div>
@@ -124,7 +116,7 @@
   </div>
 </section>
 
-<footer class="footer" data-cur="dark"><div class="wrap"><div class="f-top"><div><p class="f-promise">We solve <em>problems.</em> That's the whole business.</p><div class="sectors-line"><span class="kicker" style="color:var(--muted-dk)">F&amp;B</span><span class="kicker" style="color:var(--muted-dk)">· Logistics</span><span class="kicker" style="color:var(--muted-dk)">· PropTech</span><span class="kicker" style="color:var(--muted-dk)">· Sports</span><span class="kicker" style="color:var(--muted-dk)">· Retail</span></div></div><div><h4>Navigate</h4><ul><li><a href="/services">What we do</a></li><li><a href="/sectors">Sectors</a></li><li><a href="/work">Work</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="f-contact"><h4>Say hello</h4><ul><li><a href="mailto:hello@theconsultinggroup.in">hello@theconsultinggroup.in</a></li><li><a href="/contact">Start a conversation →</a></li><li style="color:var(--muted-dk)">Bengaluru, Karnataka, India</li></ul></div></div><div class="f-bottom"><span>© <span id="yr"></span> The Consulting Group</span><span>Operators, not advisors · Bengaluru</span></div></div></footer>
+<footer class="footer" data-cur="dark"><div class="wrap"><div class="f-top"><div><p class="f-promise">We solve <em>problems.</em> That's the whole business.</p><div class="sectors-line"><span class="kicker" style="color:var(--muted-dk)">F&amp;B</span><span class="kicker" style="color:var(--muted-dk)">· Logistics</span><span class="kicker" style="color:var(--muted-dk)">· PropTech</span><span class="kicker" style="color:var(--muted-dk)">· Sports</span></div></div><div><h4>Navigate</h4><ul><li><a href="/services">What we do</a></li><li><a href="/sectors">Sectors</a></li><li><a href="/work">Work</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="f-contact"><h4>Say hello</h4><ul><li><a href="mailto:hello@theconsultinggroup.in">hello@theconsultinggroup.in</a></li><li><a href="/contact">Start a conversation →</a></li><li style="color:var(--muted-dk)">Bengaluru, Karnataka, India</li></ul></div></div><div class="f-bottom"><span>© <span id="yr"></span> The Consulting Group</span><span>Operators, not advisors · Bengaluru</span></div></div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
