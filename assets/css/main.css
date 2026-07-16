@@ -381,6 +381,29 @@ body.cur-view #curLabel { opacity: 1; }
 .cap:hover .cap-icon { transform: translateY(-3px) scale(1.04); transition: transform .4s var(--e-expo); }
 
 /* ============================================================================
+   THREE PILLARS — one per bar in the TCG mark. The bars rise in sequence,
+   drawing the "III" logo across the three cards.
+   ========================================================================== */
+.pillars { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+@media (min-width: 820px){ .pillars { grid-template-columns: repeat(3, 1fr); } }
+.dark .pillars { border-color: var(--rule-dk); }
+.pillar { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: clamp(28px,3.4vw,48px); position: relative; overflow: hidden; transition: background .4s var(--e-expo); }
+.dark .pillar { border-color: var(--rule-dk); }
+.pillar:hover { background: var(--paper-2); }
+.dark .pillar:hover { background: var(--ink-2); }
+.pillar .bar { display: block; width: 8px; height: 38px; background: var(--crimson);
+  transform: scaleY(0); transform-origin: bottom; transition: transform .7s var(--e-expo); }
+.pillars.in .pillar:nth-child(1) .bar { transform: scaleY(1); transition-delay: .05s; }
+.pillars.in .pillar:nth-child(2) .bar { transform: scaleY(1); transition-delay: .22s; }
+.pillars.in .pillar:nth-child(3) .bar { transform: scaleY(1); transition-delay: .39s; }
+.pillar .num { display: block; margin-top: 24px; font-family: var(--f-mono); font-size: 12px; color: var(--crimson); }
+.pillar h3 { font-family: var(--f-display); font-size: clamp(1.3rem,2.1vw,1.8rem); font-weight: 700;
+  margin: 14px 0 12px; letter-spacing: -.015em; }
+.pillar p { color: var(--muted); font-size: .98rem; max-width: 32ch; }
+.dark .pillar p { color: var(--muted-dk); }
+
+/* ============================================================================
    VELOCITY TIMELINE — "the speed of it"
    ========================================================================== */
 .velocity { margin-top: clamp(44px, 6vw, 84px); }
