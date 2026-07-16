@@ -359,6 +359,47 @@ body.cur-view #curLabel { opacity: 1; }
 .cap p { color: var(--muted); font-size: .98rem; max-width: 34ch; }
 .dark .cap p { color: var(--muted-dk); }
 .cap .cap-tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+/* card header: number + line-drawn icon */
+.cap-top { display: flex; align-items: center; justify-content: space-between; }
+.cap-icon { width: 34px; height: 34px; color: var(--crimson); overflow: visible; }
+.cap-icon :is(path,line,polyline,circle,rect) { stroke-dasharray: 1; stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.1s var(--e-expo); }
+.cap-grid.in .cap-icon :is(path,line,polyline,circle,rect) { stroke-dashoffset: 0; }
+.cap:nth-child(2) .cap-icon :is(path,line,polyline,circle,rect){ transition-delay:.08s }
+.cap:nth-child(3) .cap-icon :is(path,line,polyline,circle,rect){ transition-delay:.16s }
+.cap:nth-child(4) .cap-icon :is(path,line,polyline,circle,rect){ transition-delay:.24s }
+.cap:nth-child(5) .cap-icon :is(path,line,polyline,circle,rect){ transition-delay:.32s }
+.cap:nth-child(6) .cap-icon :is(path,line,polyline,circle,rect){ transition-delay:.40s }
+.cap:hover .cap-icon { transform: translateY(-3px) scale(1.04); transition: transform .4s var(--e-expo); }
+
+/* ============================================================================
+   VELOCITY TIMELINE — "the speed of it"
+   ========================================================================== */
+.velocity { margin-top: clamp(44px, 6vw, 84px); }
+.v-nodes { display: grid; grid-template-columns: repeat(6, 1fr); position: relative; }
+.v-nodes::before, .v-nodes::after { content: ""; position: absolute; top: 5px; height: 2px;
+  left: calc(100%/12); right: calc(100%/12); border-radius: 2px; }
+.v-nodes::before { background: var(--rule); }
+.dark .v-nodes::before { background: var(--rule-dk); }
+.v-nodes::after { background: var(--crimson); transform: scaleX(0); transform-origin: left;
+  transition: transform 1.9s var(--e-expo); }
+.velocity.in .v-nodes::after { transform: scaleX(1); }
+.v-node { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 0 6px; }
+.v-node .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--rule);
+  position: relative; z-index: 1; transition: background .4s var(--e-expo), border-color .4s, transform .4s; }
+.dark .v-node .dot { background: var(--ink); border-color: var(--rule-dk); }
+.velocity.in .v-node .dot { background: var(--crimson); border-color: var(--crimson); }
+.velocity.in .v-node:nth-child(2) .dot { transition-delay: .3s } .velocity.in .v-node:nth-child(3) .dot { transition-delay: .6s }
+.velocity.in .v-node:nth-child(4) .dot { transition-delay: .9s } .velocity.in .v-node:nth-child(5) .dot { transition-delay: 1.2s }
+.velocity.in .v-node:nth-child(6) .dot { transition-delay: 1.5s; transform: scale(1.25); }
+.v-node b { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.1rem,1.8vw,1.5rem); letter-spacing: -.01em; }
+.v-node span { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.dark .v-node span { color: var(--muted-dk); }
+@media (max-width: 640px){
+  .v-nodes { grid-template-columns: repeat(3, 1fr); gap: 30px 8px; }
+  .v-nodes::before, .v-nodes::after { display: none; }
+  .v-node { gap: 8px; }
+}
 
 /* ============================================================================
    PORTFOLIO WALL — the showpiece hover mechanic
@@ -490,8 +531,11 @@ body.cur-view #curLabel { opacity: 1; }
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
   mask-image: linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
 .marquee-track { display: flex; gap: 64px; width: max-content; will-change: transform; }
-.marquee-track img { height: 30px; width: auto; object-fit: contain; filter: grayscale(1) opacity(.55) brightness(0) invert(1); opacity: .5; }
+.marquee-track img { height: 30px; width: auto; object-fit: contain; filter: grayscale(1) opacity(.55) brightness(0) invert(1); opacity: .45; transition: opacity .3s; }
+.marquee-track img:hover { opacity: .85; }
 .marquee.on-paper .marquee-track img { filter: grayscale(1) opacity(.5); }
+.marq-label { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted-dk); text-align: center; margin-bottom: 26px; }
 
 /* misc utility */
 .mt-s{margin-top:14px}.mt-m{margin-top:28px}.mt-l{margin-top:48px}
