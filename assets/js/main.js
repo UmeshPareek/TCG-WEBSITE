@@ -300,6 +300,8 @@
     if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) return false;
     return true;
   }
+  const wipeInner = wipe && wipe.querySelector('.wipe-inner');
+  const wipeBars  = wipe ? wipe.querySelectorAll('.wipe-inner .mark i') : [];
   if (wipe && gsap && !reduce) {
     document.addEventListener('click', e => {
       const a = e.target.closest('a');
@@ -308,12 +310,18 @@
       if (dest === location.pathname || dest === location.pathname.replace('.html','')) return;
       e.preventDefault();
       gsap.timeline()
-        .set(wipe, { transformOrigin: 'bottom', scaleY: 0 })
-        .to(wipe, { scaleY: 1, duration: 0.5, ease: 'power4.inOut' })
-        .add(() => { window.location.href = dest; });
+        .set(wipe, { clipPath: 'inset(100% 0% 0% 0%)' })
+        .set(wipeInner, { opacity: 0 })
+        .set(wipeBars, { scaleY: 0.25 })
+        .to(wipe, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power4.inOut' })
+        .to(wipeInner, { opacity: 1, duration: 0.25 }, '-=0.25')
+        .to(wipeBars, { scaleY: 1, duration: 0.35, stagger: 0.07, ease: 'power3.out' }, '-=0.15')
+        .add(() => { window.location.href = dest; }, '+=0.1');
     });
     // reveal on back-forward cache
-    addEventListener('pageshow', ev => { if (ev.persisted) gsap.to(wipe,{scaleY:0,transformOrigin:'top',duration:.5,ease:'power4.inOut'}); });
+    addEventListener('pageshow', ev => {
+      if (ev.persisted) gsap.to(wipe, { clipPath: 'inset(0% 0% 100% 0%)', duration: .6, ease: 'power4.inOut' });
+    });
   }
 
   /* -------------------------------------------------- Boot */
@@ -321,10 +329,13 @@
   else addEventListener('load', hideLoader);
   // safety: never leave the page hidden
   setTimeout(hideLoader, 2200);
-  // intro wipe reveal (covers -> uncovers on fresh load)
+  // intro wipe reveal (covers -> uncovers upward on fresh load)
   if (wipe && gsap && !reduce) {
-    gsap.set(wipe, { scaleY: 1, transformOrigin: 'top' });
-    const revealWipe = () => gsap.to(wipe, { scaleY: 0, duration: 0.6, ease: 'power4.inOut', delay: 0.05 });
+    gsap.set(wipe, { clipPath: 'inset(0% 0% 0% 0%)' });
+    gsap.set(wipeInner, { opacity: 1 });
+    const revealWipe = () => gsap.timeline()
+      .to(wipeInner, { opacity: 0, duration: 0.25, ease: 'power2.out' })
+      .to(wipe, { clipPath: 'inset(0% 0% 100% 0%)', duration: 0.7, ease: 'power4.inOut' }, '-=0.1');
     // guard: if load already fired (cached nav), the listener would never run — reveal now
     if (document.readyState === 'complete') revealWipe();
     else addEventListener('load', revealWipe);
