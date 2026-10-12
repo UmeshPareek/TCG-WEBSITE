@@ -74,3 +74,23 @@ Bengaluru, Karnataka, India
 ## Media credits
 
 - Hero background video: "Red Ink in Water" by Engin Akyurt via [Pexels](https://www.pexels.com/video/6069113/) (Pexels License, free to use). Self-hosted, muted, compressed at `assets/video/`.
+
+## V4 design proposal
+
+The latest page-by-page design proposal is preserved separately in [`designs/v4/`](designs/v4/), without replacing the current website.
+
+- [Editable website source](designs/v4/tcg-v4/) — open `index.html` with a static server.
+- [Standalone interactive prototype](designs/v4/TCG-V4-Interactive-Prototype.html) — download and open locally in a browser.
+- [21-page design gallery](designs/v4/TCG-V4-Design-Boards.html) — serve locally with the neighbouring `tcg-v4/screenshots/` folder.
+- [UI/UX handoff](designs/v4/TCG-V4-Design-Handoff.md)
+- [Asset provenance and generation prompt](designs/v4/TCG-V4-Asset-Notes.md)
+
+The proposal uses **umesh@tcg.ind.in** as the official contact email. Enquiries create a local review and optional email draft; there is no backend submission.
+
+Preview from the repository root:
+
+```sh
+python3 -m http.server 4321 --bind 127.0.0.1
+```
+
+Then visit `http://127.0.0.1:4321/designs/v4/tcg-v4/`.

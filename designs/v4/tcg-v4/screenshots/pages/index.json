@@ -1,0 +1,149 @@
+[
+  {
+    "route": "",
+    "file": "01-home.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services",
+    "file": "02-services.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services/finance",
+    "file": "03-services-finance.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services/operations",
+    "file": "04-services-operations.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services/technology",
+    "file": "05-services-technology.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services/brand",
+    "file": "06-services-brand.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services/compliance",
+    "file": "07-services-compliance.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "services/legal",
+    "file": "08-services-legal.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "industries",
+    "file": "09-industries.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "industries/hospitality",
+    "file": "10-industries-hospitality.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "industries/logistics",
+    "file": "11-industries-logistics.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "industries/real-estate",
+    "file": "12-industries-real-estate.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "industries/performance",
+    "file": "13-industries-performance.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "work",
+    "file": "14-work.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "work/gully-bowls",
+    "file": "15-work-gully-bowls.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "work/sp-freight",
+    "file": "16-work-sp-freight.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "work/the-switch",
+    "file": "17-work-the-switch.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "work/cashmyrent",
+    "file": "18-work-cashmyrent.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "about",
+    "file": "19-about.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "wealth",
+    "file": "20-wealth.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "contact",
+    "file": "21-contact.jpg",
+    "broken": 0,
+    "h1": 1,
+    "overflow": false
+  }
+]
