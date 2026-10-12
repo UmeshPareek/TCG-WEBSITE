@@ -1,96 +1,32 @@
 # TCG — The Consulting Group
 
-Official website for **The Consulting Group (TCG)** — a full-spectrum consulting
-firm in Bengaluru. One promise, everywhere: **we solve problems.**
+Live website source for The Consulting Group, Bengaluru. Official email: **umesh@tcg.ind.in**.
 
-> Operator's Editorial — ink + warm paper + one decisive crimson. Warm as a
-> friend, sharp as a consultant. Built for MSMEs and marquee brands alike.
+## Website
 
-## Stack
-
-- **Multi-page static site** — plain HTML/CSS/JS, **no build step**
-- **GSAP + ScrollTrigger** and **Lenis** (smooth scroll) via CDN
-- Fonts: **Fraunces** (display) · **General Sans** (body) · **JetBrains Mono** (labels)
-- Deployed on **Vercel** (clean URLs, auto-deploy on push)
-
-Everything degrades gracefully: `prefers-reduced-motion` is honoured, reveals fall
-back to plain visibility, and the site is fully readable without JavaScript.
-
-## Structure
-
-```
-TCG-WEBSITE/
-├── index.html         # Home — hero, problem, sectors, MSME manifesto, proof, portfolio teaser
-├── services.html      # What we do — six portfolios, start-at-zero, process
-├── sectors.html       # Sectors — five industries in depth
-├── work.html          # Work — the client wall (hover/tap reveal + sector filter)
-├── about.html         # About — origin, founder, operator ethos, Bengaluru
-├── contact.html       # Contact — warm form (composes an email; Formspree-ready)
-├── assets/
-│   ├── css/main.css   # Full design system (tokens, type, components, motion)
-│   ├── js/main.js     # Cursor, Lenis, reveals, hero sequence, portfolio, transitions
-│   ├── logos/         # Client logos + TCG mark + founder photo
-│   └── img/           # (reserved for future imagery)
-├── vercel.json        # Clean URLs, security + cache headers
-└── README.md
-```
-
-## Run locally
-
-No build needed — serve the folder with any static server:
-
-```bash
-npx serve .          # then open the printed URL
-# or
-python3 -m http.server 4321   # note: use /work.html style URLs (no clean-URL rewrite)
-```
-
-`npx serve` mirrors Vercel's clean URLs (`/work`, `/about`, …).
-
-## Editing notes
-
-- **Design tokens** (colours, fonts, easing) live at the top of `assets/css/main.css`
-  as CSS variables — change them there and they cascade everywhere.
-- **Portfolio wall** (`work.html`): each tile has a `data-sector` (for the filter)
-  and an in-DOM `.panel` (so the hover reveal is keyboard-focusable and
-  screen-reader readable). Add a client by copying a `.tile` block.
-- **Contact form** (`contact.html`): works with zero backend by opening a
-  pre-filled email. To deliver to an inbox instead, create a free form at
-  [formspree.io](https://formspree.io) and set `FORM_ENDPOINT` near the bottom
-  of the page.
-- **Client display**: all names/logos come from the public deck. If any client
-  later needs to be hidden, swap its tile to the "Confidential — sector shown"
-  pattern already used for the NDA tile.
-
-## Deployment
-
-Hosted on Vercel. Every push to `main` auto-deploys.
-
-## Contact
-
-hello@theconsultinggroup.in
-Bengaluru, Karnataka, India
-
-## Media credits
-
-- Hero background video: "Red Ink in Water" by Engin Akyurt via [Pexels](https://www.pexels.com/video/6069113/) (Pexels License, free to use). Self-hosted, muted, compressed at `assets/video/`.
-
-## V4 design proposal
-
-The latest page-by-page design proposal is preserved separately in [`designs/v4/`](designs/v4/), without replacing the current website.
-
-- [Editable website source](designs/v4/tcg-v4/) — open `index.html` with a static server.
-- [Standalone interactive prototype](designs/v4/TCG-V4-Interactive-Prototype.html) — download and open locally in a browser.
-- [21-page design gallery](designs/v4/TCG-V4-Design-Boards.html) — serve locally with the neighbouring `tcg-v4/screenshots/` folder.
-- [UI/UX handoff](designs/v4/TCG-V4-Design-Handoff.md)
-- [Asset provenance and generation prompt](designs/v4/TCG-V4-Asset-Notes.md)
-
-The proposal uses **umesh@tcg.ind.in** as the official contact email. Enquiries create a local review and optional email draft; there is no backend submission.
-
-Preview from the repository root:
+The repository root serves the V4 design: 21 screens covering six consulting practices, four industries, selected work, the firm, TCG Wealth and contact. It is a static HTML/CSS/JavaScript site with hash-based navigation and no build step. Vercel deploys `main`.
 
 ```sh
 python3 -m http.server 4321 --bind 127.0.0.1
 ```
 
-Then visit `http://127.0.0.1:4321/designs/v4/tcg-v4/`.
+Open `http://127.0.0.1:4321/`.
+
+- `index.html`: entry point and metadata.
+- `app.js`: page templates and routing.
+- `content.js`: practice, industry and project content.
+- `experience.js`: interactive priorities, disclosures and challenge routing.
+- `styles.css`: responsive layout and visual system.
+- `assets/`: supplied logo, founder photo and generated conceptual hero image, alongside retained legacy assets.
+
+Existing `/services`, `/sectors`, `/work`, `/about` and `/contact` URLs forward visitors to the corresponding new screen. The design-review toolbar is removed from the public site.
+
+## Enquiries
+
+The contact form creates a local review, then lets visitors open a prefilled email draft addressed to `umesh@tcg.ind.in`. It does not submit to a backend or send automatically.
+
+## Design handoff
+
+The original V4 prototype and reference captures remain in [`designs/v4/`](designs/v4/), including [the handoff](designs/v4/TCG-V4-Design-Handoff.md), [page gallery](designs/v4/TCG-V4-Design-Boards.html), and [asset provenance](designs/v4/TCG-V4-Asset-Notes.md). These document the original design stage; the root contains the public-site adaptations.
+
+The hero cityscape is generated concept imagery, not a documentary photograph of a named location. Client artwork is labelled conceptual presentation material. No client results or funding guarantees have been invented.
