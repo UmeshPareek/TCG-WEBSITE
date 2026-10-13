@@ -4,22 +4,30 @@ Live website source for The Consulting Group, Bengaluru. Official email: **umesh
 
 ## Website
 
-The repository root serves the V4 design: 21 screens covering six consulting practices, four industries, selected work, the firm, TCG Wealth and contact. It is a static HTML/CSS/JavaScript site with hash-based navigation and no build step. Vercel deploys `main`.
+The repository root serves 23 public pages: eight consulting practices, four industries, selected work, the firm, TCG Wealth and contact. Pages are generated as complete HTML with regular URLs, individual search metadata, canonical links and a sitemap. Vercel deploys `main` using its existing static hosting configuration.
+
+After changing templates, content, or SEO metadata, rebuild and validate before committing:
 
 ```sh
-python3 -m http.server 4321 --bind 127.0.0.1
+node scripts/build.cjs
+node scripts/check.cjs
+python3 scripts/preview.py 4321
 ```
 
-Open `http://127.0.0.1:4321/`.
+Open `http://127.0.0.1:4321/`. The preview server supports the same clean URLs as production. No packages or external build dependencies are required. Generated HTML is committed, so Vercel does not need a build step.
 
-- `index.html`: entry point and metadata.
-- `app.js`: page templates and routing.
+- `app.js`: shared page templates and browser interactions.
 - `content.js`: practice, industry and project content.
 - `experience.js`: interactive priorities, disclosures and challenge routing.
+- `seo.js`: page titles, descriptions and production domain.
+- `scripts/build.cjs`: prerenders the pages, structured data, robots.txt and sitemap.xml.
 - `styles.css`: responsive layout and visual system.
-- `assets/`: supplied logo, founder photo and generated conceptual hero image, alongside retained legacy assets.
+- `assets/`: logo, founder portrait, concept cityscape and sourced sector photographs.
+- `index.html`, root and nested `.html` pages: generated files; edit the templates rather than these outputs.
 
-Existing `/services`, `/sectors`, `/work`, `/about` and `/contact` URLs forward visitors to the corresponding new screen. The design-review toolbar is removed from the public site.
+Old `/#/services/...` links migrate to the corresponding clean URL, preserving enquiry query parameters. `/sectors` redirects to `/industries`. Archived design files are excluded from indexing via an `X-Robots-Tag` response header.
+
+The SEO canonical domain is currently `https://tcg-website-iota.vercel.app`, the verified production deployment. If a custom domain becomes primary, update `SITE_URL` in `seo.js`, rebuild and configure the domain/redirects before publishing. Submit the sitemap to the verified domain’s Search Console property when access is available.
 
 ## Enquiries
 

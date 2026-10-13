@@ -42,13 +42,29 @@
       ]
     },
     {
-      "source": "/(app.js|content.js|experience.js|styles.css)",
+      "source": "/(app.js|content.js|experience.js|seo.js|styles.css)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
         }
       ]
+    },
+    {
+      "source": "/designs/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/sectors",
+      "destination": "/industries",
+      "permanent": true
     }
   ]
 }
