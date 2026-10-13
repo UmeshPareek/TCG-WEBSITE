@@ -1,4 +1,4 @@
-# TCG — The Consulting Group
+# TCG - The Consulting Group
 
 Live website source for The Consulting Group, Bengaluru. Official email: **umesh@tcg.ind.in**.
 
@@ -11,6 +11,7 @@ After changing templates, content, or SEO metadata, rebuild and validate before 
 ```sh
 node scripts/build.cjs
 node scripts/check.cjs
+node scripts/check-engagement.cjs
 python3 scripts/preview.py 4321
 ```
 
@@ -18,6 +19,7 @@ Open `http://127.0.0.1:4321/`. The preview server supports the same clean URLs a
 
 - `app.js`: shared page templates and browser interactions.
 - `content.js`: practice, industry and project content.
+- `engagement.js`: assistant answers, session continuity and NDA/meeting request review.
 - `experience.js`: interactive priorities, disclosures and challenge routing.
 - `seo.js`: page titles, descriptions and production domain.
 - `scripts/build.cjs`: prerenders the pages, structured data, robots.txt and sitemap.xml.
@@ -27,11 +29,24 @@ Open `http://127.0.0.1:4321/`. The preview server supports the same clean URLs a
 
 Old `/#/services/...` links migrate to the corresponding clean URL, preserving enquiry query parameters. `/sectors` redirects to `/industries`. Archived design files are excluded from indexing via an `X-Robots-Tag` response header.
 
-The SEO canonical domain is currently `https://tcg-website-iota.vercel.app`, the verified production deployment. If a custom domain becomes primary, update `SITE_URL` in `seo.js`, rebuild and configure the domain/redirects before publishing. Submit the sitemap to the verified domain’s Search Console property when access is available.
+The primary domain is `https://www.tcg.ind.in`, verified serving the redesigned site on 13 October 2026. Canonicals, sitemap, social metadata and structured data use it. The Vercel alias permanently redirects to this domain, preserving paths and query parameters. The apex domain already redirects to www. `seo.js` remains the single source for the primary domain.
+
+The homepage uses responsive WebP copies of the original cityscape. To regenerate them with cwebp:
+
+```sh
+cwebp -q 82 -m 6 assets/city-momentum.png -o assets/city-momentum.webp
+cwebp -q 80 -m 6 -resize 960 0 assets/city-momentum.png -o assets/city-momentum-960.webp
+```
+
+Search Console verification and submission remain an account-side action; see `SEO-AUDIT.md`.
 
 ## Enquiries
 
-The contact form creates a local review, then lets visitors open a prefilled email draft addressed to `umesh@tcg.ind.in`. It does not submit to a backend or send automatically.
+Visitors choose an NDA request or introductory meeting, provide name, company, email and an optional preferred time, then review a message locally. They can open a WhatsApp draft for **+91 82177 16904** or an email draft to `umesh@tcg.ind.in`. Sending takes place in the visitor’s chosen app. No agreement is signed, availability is queried or meeting reserved by this form. The owner approved this request flow on 13 October 2026 pending legal wording and calendar setup.
+
+`engagement.js` contains the shared branded service guide and request flow. The guide answers from a bounded, local TCG service knowledge base. It does not use Gemini or a remote model. It retains the latest six questions in this browser tab’s session storage, with a Clear chat control. Request form details are not persisted. The introductory input collapses after 12 seconds of inactivity without hiding a focused input or an open conversation.
+
+To activate signing and real scheduling later: confirm TCG’s registered contracting entity and approved NDA; choose a signature provider with a completed-document record and notifications; connect Umesh’s calendar to a scheduler that checks busy time privately and sends invitations to both parties. Gate booking on verified signing status if required. Do not treat a browser checkbox or WhatsApp draft as a signed NDA or a confirmed booking.
 
 ## Design handoff
 

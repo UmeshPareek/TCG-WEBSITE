@@ -42,7 +42,7 @@
       ]
     },
     {
-      "source": "/(app.js|content.js|experience.js|seo.js|styles.css)",
+      "source": "/(app.js|content.js|experience.js|engagement.js|seo.js|styles.css)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -58,9 +58,38 @@
           "value": "noindex"
         }
       ]
+    },
+    {
+      "source": "/assets/:file*.webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(README|CONTENT-STRATEGY|SEO-AUDIT).md",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ],
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tcg-website-iota.vercel.app"
+        }
+      ],
+      "destination": "https://www.tcg.ind.in/:path*",
+      "permanent": true
+    },
     {
       "source": "/sectors",
       "destination": "/industries",

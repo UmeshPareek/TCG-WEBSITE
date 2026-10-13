@@ -13,7 +13,7 @@ The first three homepage sections answer:
 
 | Page | Main search intent | Supporting language |
 | --- | --- | --- |
-| Home | Business consulting in Bengaluru | Startup consulting, business growth, strategy and execution |
+| Home | Business consulting in India and Bengaluru | Startup consulting, business growth, strategy and execution |
 | Strategy | Business strategy and growth consulting | Business plans, market research, pricing, go-to-market strategy |
 | Marketing | Digital marketing and customer acquisition | SEO content, social media, campaign planning, lead generation |
 | Brand | Brand positioning and website design | Value proposition, naming, brand messaging, visual identity |
@@ -30,8 +30,8 @@ These are topic and intent choices, not measured search-volume or ranking claims
 
 ## Technical implementation
 
-Every public page includes its content in the HTML response, a unique title and description, a canonical URL, social metadata and factual Organization structured data. Internal links use clean paths; old hash links still work. Generated pages and the sitemap use the verified Vercel production domain. No analytics, tracking scripts, backend submission or new external accounts were added.
+Every public page includes its content in the HTML response, a unique title and description, a canonical URL, social metadata and factual Organization structured data. Internal links use clean paths; old hash links still work. Generated pages and the sitemap use https://www.tcg.ind.in, verified as the primary domain on 13 October 2026. No analytics, tracking scripts, backend submission or new external accounts were added.
 
 ## Evidence and conversion
 
-Project descriptions retain the existing engagement scopes. New practices describe services and concrete deliverables without claiming past results. Each service has a relevant enquiry route. The challenge finder passes the selected need into the enquiry. Visitors review the message locally and then open their own email app to send it to umesh@tcg.ind.in.
+Project descriptions retain the existing engagement scopes. New practices describe services and concrete deliverables without claiming past results. Each service has a relevant enquiry route. The challenge finder passes the selected need into the enquiry. Visitors choose NDA-first or introductory meeting requests, review the message locally, and then send it through WhatsApp to +91 82177 16904 or email to umesh@tcg.ind.in. Compact brand-first tab titles are retained at the owner’s request, while headings, descriptions and page copy carry the service context.

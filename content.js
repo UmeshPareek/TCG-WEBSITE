@@ -45,7 +45,21 @@ const services = [
       "operations",
       "finance"
     ],
-    "n": "01"
+    "n": "01",
+    "faq": [
+      [
+        "What does business strategy consulting include?",
+        "An engagement can include market and competitor research, a business plan, pricing, a go-to-market strategy and a prioritised growth roadmap. The starting point is the decision you need to make; the scope defines which of these outputs will help."
+      ],
+      [
+        "Can TCG help with an existing business, not just a startup?",
+        "Yes. Strategy work can focus on an established business’s next market, location, product or operating challenge. A new venture may need a launch plan, while an established company may need a clearer commercial direction."
+      ],
+      [
+        "What should I prepare for a strategy discussion?",
+        "Bring a short description of the business, your customers, the decision you are facing and what you have tried. Any existing plans or performance information can help define the work; you do not need a finished brief to begin."
+      ]
+    ]
   },
   {
     "id": "marketing",
@@ -93,7 +107,21 @@ const services = [
       "strategy",
       "technology"
     ],
-    "n": "02"
+    "n": "02",
+    "faq": [
+      [
+        "How do you choose the right digital marketing channels?",
+        "We start with your audience, offer and business goal, then consider where customers discover and evaluate a business like yours. The plan connects relevant channels, content, landing pages and enquiry measurement rather than assuming every business needs every channel."
+      ],
+      [
+        "What is the difference between SEO and paid marketing?",
+        "SEO improves how useful and discoverable your website is in organic search. Paid marketing purchases advertising placements. They have different costs and timelines; the right mix depends on your goals, budget and customer journey."
+      ],
+      [
+        "Can marketing work include brand positioning or website changes?",
+        "Yes. If the proposition is unclear or the website makes enquiries difficult, TCG can connect marketing with brand strategy and website work. Those deliverables are defined in the engagement scope."
+      ]
+    ]
   },
   {
     "id": "brand",
@@ -142,7 +170,21 @@ const services = [
       "strategy",
       "technology"
     ],
-    "case": "the-switch"
+    "case": "the-switch",
+    "faq": [
+      [
+        "What is brand positioning, and how is it different from a logo?",
+        "Brand positioning defines the customer you serve, the value you offer and why someone should choose you. A logo is one visual expression of that position. Positioning guides the message, identity, website and marketing around a consistent idea."
+      ],
+      [
+        "Can you work with our existing brand?",
+        "Yes. The brief can focus on clarifying positioning, refreshing the identity, improving the website or bringing customer touchpoints together. A full rebrand is only one possible scope."
+      ],
+      [
+        "Does a branding engagement include a website?",
+        "Website strategy, content structure and design can be included alongside brand work. The agreed scope sets out which brand assets and digital deliverables are included."
+      ]
+    ]
   },
   {
     "id": "operations",
@@ -191,7 +233,21 @@ const services = [
       "strategy",
       "finance"
     ],
-    "case": "gully-bowls"
+    "case": "gully-bowls",
+    "faq": [
+      [
+        "What does business process improvement involve?",
+        "We look at how work moves between people, where handoffs stall and which decisions lack clear ownership. The work can include workflow mapping, SOPs, staffing responsibilities, cost tracking and management reporting."
+      ],
+      [
+        "Do we need new software to improve operations?",
+        "Not always. Clearer processes and ownership may be the first step. When recurring work needs a platform, the operations and technology practices can define and build it together."
+      ],
+      [
+        "Can you help reduce dependence on the founder?",
+        "The work can establish repeatable routines, clear responsibilities and reporting that make everyday decisions easier to delegate. The plan depends on your team, current processes and the decisions that keep returning to the founder."
+      ]
+    ]
   },
   {
     "id": "technology",
@@ -240,7 +296,21 @@ const services = [
       "brand",
       "marketing"
     ],
-    "case": "sp-freight"
+    "case": "sp-freight",
+    "faq": [
+      [
+        "When should we consider custom software instead of an off-the-shelf tool?",
+        "Custom software may be worth considering when existing tools leave important workflow gaps or require repeated manual handoffs. The first step is to map the need and compare what can be achieved with configuration, process changes or a purpose-built platform."
+      ],
+      [
+        "What types of business platforms does TCG build?",
+        "TCG’s published work includes logistics operations software and property management SaaS. A scoped engagement can include internal tools, operations platforms, dashboards and workflow automation built around your business requirements."
+      ],
+      [
+        "How is a software project scoped?",
+        "We define the users, workflows, required information and core actions before agreeing the deliverables. The scope should also clarify integrations, testing, rollout and any ongoing support requirements."
+      ]
+    ]
   },
   {
     "id": "finance",
@@ -289,7 +359,21 @@ const services = [
       "operations",
       "wealth"
     ],
-    "case": "gully-bowls"
+    "case": "gully-bowls",
+    "faq": [
+      [
+        "What is included in financial modelling?",
+        "A business financial model connects revenue, costs, cash flow and the assumptions that drive them. Depending on the scope, it can support pricing, unit economics, break-even analysis, expansion decisions or investor conversations."
+      ],
+      [
+        "Can you create a pitch deck if our financial model is not ready?",
+        "The financial case and presentation can be developed together. The work starts with your business model, market context and available information so the narrative and numbers support the same story."
+      ],
+      [
+        "Is pitch deck support the same as arranging business funding?",
+        "No. Pitch deck and financial modelling services help you explain and evaluate the business. Business funding enquiries are handled through TCG Wealth, with availability, eligibility and terms discussed separately."
+      ]
+    ]
   },
   {
     "id": "compliance",
@@ -337,6 +421,16 @@ const services = [
       "finance",
       "legal",
       "wealth"
+    ],
+    "faq": [
+      [
+        "Can compliance support sit alongside our finance work?",
+        "Yes. TCG can coordinate incorporation, documentation and recurring filing needs with financial reporting and the wider business structure. The exact responsibilities and specialist input are defined before work begins."
+      ],
+      [
+        "What information should we share in the first conversation?",
+        "Start with your entity type, business stage, the compliance issue and any known deadlines. The initial website enquiry does not require financial documents or identification records."
+      ]
     ]
   },
   {
@@ -385,6 +479,16 @@ const services = [
       "compliance",
       "finance",
       "operations"
+    ],
+    "faq": [
+      [
+        "What kinds of business documentation can TCG help with?",
+        "The practice covers commercial agreements, NDAs, scope documentation and coordination around business structure and advisory needs. Specific legal requirements and any specialist involvement are established around the matter."
+      ],
+      [
+        "How do you scope a contract or advisory enquiry?",
+        "Begin with the business relationship, the decision or issue involved, and any relevant timeline. The team can then establish the appropriate scope and documentation needed for the next discussion."
+      ]
     ]
   }
 ];

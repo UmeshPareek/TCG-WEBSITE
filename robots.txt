@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tcg-website-iota.vercel.app/sitemap.xml
+Sitemap: https://www.tcg.ind.in/sitemap.xml
