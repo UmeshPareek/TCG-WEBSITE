@@ -11,3 +11,7 @@ Downloaded 13 October 2026 from Pexels. Source pages and the [Pexels license](ht
 | performance.jpg | Giant Asparagus | https://www.pexels.com/photo/aerial-view-of-empty-athletic-track-and-field-35678275/ |
 
 Images acquired from `https://images.pexels.com/photos/{id}/pexels-photo-{id}.jpeg` with CDN width 1600 and compression enabled. Original photo IDs: 10298345, 29819295, 24244232, 31458376, 35678275.
+
+## Wealth editorial photograph, 15 October 2026
+
+`wealth-editorial.webp`: [Sunlit Modern Skyscraper Facade at Dusk](https://www.pexels.com/photo/sunlit-modern-skyscraper-facade-at-dusk-30295161/), by Jailyn Funn. Source page and [Pexels licence](https://www.pexels.com/license/) checked at acquisition. Used as illustrative architecture, not a TCG office, client project or funded property. Downloaded from the Pexels image CDN, resized to 640 × 480 and encoded as WebP; grayscale presentation is applied in CSS.
