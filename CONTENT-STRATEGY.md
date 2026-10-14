@@ -22,7 +22,7 @@ The first three homepage sections answer:
 | Finance | Financial modelling and pitch deck services | Business profitability, pricing, unit economics, reporting |
 | Compliance | Company incorporation and compliance support | GST support, ROC / MCA filings, audit coordination |
 | Legal | Business contracts and advisory coordination | NDAs, commercial agreements, entity structuring |
-| TCG Wealth | Business funding and debt financing | Expansion, working capital, business financing enquiry |
+| TCG Wealth | Business funding and debt financing | Business expansion funding, funds for daily operations, business financing enquiry |
 
 These are topic and intent choices, not measured search-volume or ranking claims. Search Console and conversion data should guide later refinement. The content follows Google's people-first writing and JavaScript SEO guidance:
 - https://developers.google.com/search/docs/fundamentals/creating-helpful-content
@@ -34,4 +34,4 @@ Every public page includes its content in the HTML response, a unique title and 
 
 ## Evidence and conversion
 
-Project descriptions retain the existing engagement scopes. New practices describe services and concrete deliverables without claiming past results. Each service has a relevant enquiry route. The challenge finder passes the selected need into the enquiry. Visitors choose NDA-first or introductory meeting requests, review the message locally, and then send it through WhatsApp to +91 82177 16904 or email to umesh@tcg.ind.in. Compact brand-first tab titles are retained at the owner’s request, while headings, descriptions and page copy carry the service context.
+Project descriptions retain the existing engagement scopes. New practices describe services and concrete deliverables without claiming past results. Each service has a relevant enquiry route. The challenge finder passes the selected need into the enquiry. Visitors choose NDA-first or introductory meeting requests, review the message locally, and then open an email or WhatsApp draft addressed to Umesh, or copy the message into their email service. The homepage tab retains TCG at the owner’s request. Inner pages use concise brand-first titles with descriptive service or industry terms. Titles match in the HTML and browser. Headings, descriptions and page copy provide further context.

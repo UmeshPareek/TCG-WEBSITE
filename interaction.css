@@ -24,3 +24,30 @@
 /* Independent generated assistant character. TCG brand artwork is unchanged. */
 .assistant-avatar{display:block;width:44px;height:44px;flex-shrink:0;border-radius:50%;background:#eeebe5;overflow:hidden}.assistant-avatar img{position:static;display:block;width:100%;height:100%;max-width:100%;object-fit:contain}.assistant-heading .assistant-avatar{width:62px;height:62px}.assistant-launch{padding-top:7px;padding-bottom:7px}.assistant-teaser .assistant-avatar{width:39px;height:39px}
 @media(max-width:700px){.assistant-launch .assistant-avatar{width:36px;height:36px}.assistant-teaser .assistant-avatar{width:34px;height:34px}.assistant-heading .assistant-avatar{width:53px;height:53px}}
+
+/* Wealth: one headline, one introduction, one aligned conversation. */
+.wealth-stage{position:relative;isolation:isolate;background:#1d1d1b;color:#faf9f6;overflow:hidden}
+.wealth-stage-image,.wealth-stage-shade{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.wealth-stage-image{object-fit:cover;object-position:center 43%;filter:grayscale(1);opacity:.66}
+.wealth-stage-shade{z-index:-1;background:linear-gradient(90deg,#191918e6 0%,#191918a6 50%,#19191852 100%),linear-gradient(0deg,#191918c9,transparent 50%)}
+.wealth-stage-inner{min-height:680px;display:flex;flex-direction:column;padding-top:38px;padding-bottom:32px}
+.wealth-stage-top{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.wealth-wordmark{font:30px/1.2 Georgia,serif;letter-spacing:-.04em}.wealth-wordmark em{font-style:normal;color:#ee8176}
+.wealth-stage-label{font-size:11px;line-height:1.7;letter-spacing:.1em;color:#ddd8d2;text-align:right}
+.wealth-stage-grid{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 290px;align-items:end;gap:65px;padding:100px 0 86px}
+.wealth-stage-kicker{display:block;font-size:11px;letter-spacing:.13em;color:#ee8176;margin-bottom:26px}
+.wealth-stage h1{font-family:TCG,Arial,sans-serif;font-size:clamp(66px,7.2vw,112px);font-weight:400;line-height:1.04;letter-spacing:-.06em;margin:0}
+.wealth-stage h1 em{font-family:Georgia,serif;font-weight:400;font-style:normal;letter-spacing:-.055em;color:#faf9f6}
+.wealth-stage-aside{padding-bottom:3px}.wealth-stage-aside>p{font-size:19px;line-height:1.6;color:#ece9e4;margin:0 0 28px;max-width:300px}
+.wealth-stage-action{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:8px 8px 8px 20px;background:#a32a20;border-radius:100px;color:white;font-size:14px;min-height:55px;transition:background .2s}
+.wealth-stage-action:hover{background:#822219}.wealth-stage-action:hover .cta-orbit{transform:rotate(45deg)}
+.wealth-stage-explore{display:inline-flex;align-items:center;gap:35px;font-size:14px;color:#e4dfd8;margin-top:23px;padding:5px 0;border-bottom:1px solid #ffffff50}.wealth-stage-explore span{font-size:21px}
+.wealth-stage-foot{border-top:1px solid #ffffff40;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:#c5c2bc;line-height:1.5}
+#funding-journey,#funding-needs{scroll-margin-top:0}
+.wealth-needs .section-top{align-items:end}.wealth-needs .section-top>p{max-width:400px}
+.wealth-need-row{display:grid;grid-template-columns:50px 1fr 1fr;gap:30px;border-top:1px solid #d2cfc7;padding:32px 0;align-items:center}.wealth-need-row:last-child{border-bottom:1px solid #d2cfc7}
+.wealth-need-label{display:block;color:#a32a20;font-size:12px;line-height:1.5;margin-bottom:9px}.wealth-need-row h3{font-size:clamp(25px,2.5vw,36px);font-weight:400;letter-spacing:-.04em;line-height:1.2}.wealth-need-row p{font-size:17px;line-height:1.65;color:#64635d;max-width:470px}.wealth-needs .small-note{margin-top:24px}
+@media(min-width:1600px){.wealth-stage-inner{min-height:750px}.wealth-stage-grid{grid-template-columns:minmax(0,1fr) 340px;gap:90px}.wealth-stage-aside>p{font-size:21px;max-width:340px}.wealth-stage-action{font-size:16px}}
+@media(min-width:701px) and (max-width:1100px){.wealth-stage-grid{grid-template-columns:minmax(0,1fr) 260px;gap:28px}.wealth-stage h1{font-size:clamp(52px,6.7vw,74px)}.wealth-stage-aside>p{font-size:17px}.wealth-stage-action{padding-left:15px;font-size:13px;gap:7px}.wealth-stage-inner{min-height:620px}}
+@media(max-width:700px){.wealth-stage-inner{min-height:0;padding-top:28px;padding-bottom:84px}.wealth-stage-top{align-items:start}.wealth-wordmark{font-size:27px}.wealth-stage-label{font-size:10px;max-width:135px;line-height:1.65}.wealth-stage-grid{display:block;padding:64px 0 40px}.wealth-stage-kicker{font-size:10px;margin-bottom:22px}.wealth-stage h1{font-size:clamp(43px,11.3vw,76px);line-height:1.08}.wealth-stage-aside{margin-top:32px;max-width:350px}.wealth-stage-aside>p{font-size:17px;line-height:1.65;max-width:330px;margin-bottom:23px}.wealth-stage-action{max-width:310px;font-size:14px}.wealth-stage-explore{margin-top:20px}.wealth-stage-foot{display:block;font-size:11px;padding-top:19px}.wealth-stage-foot>span{display:block}.wealth-stage-foot>span+span{margin-top:6px}.wealth-stage-image{object-position:58% 40%}.wealth-stage-shade{background:linear-gradient(90deg,#191918d9,#19191873),linear-gradient(0deg,#191918d9,transparent 65%)}.wealth-need-row{grid-template-columns:25px 1fr;gap:14px;padding:25px 0}.wealth-need-row p{grid-column:2;font-size:16px}.wealth-need-row h3{font-size:27px}.wealth-need-row .number{align-self:start;padding-top:4px}.wealth-need-label{font-size:12px}.wealth-needs .section-top{margin-bottom:32px}#funding-journey,#funding-needs{scroll-margin-top:0}}
+@media(prefers-reduced-motion:reduce){.wealth-stage-action,.wealth-stage-action .cta-orbit{transition:none}}

@@ -42,11 +42,11 @@ Search Console verification and submission remain an account-side action; see `S
 
 ## Enquiries
 
-Visitors choose an NDA request or introductory meeting, provide name, company, email and an optional preferred time, then review a message locally. They can open a WhatsApp draft for **+91 82177 16904** or an email draft to `umesh@tcg.ind.in`. Sending takes place in the visitor’s chosen app. No agreement is signed, availability is queried or meeting reserved by this form. The owner approved this request flow on 13 October 2026 pending legal wording and calendar setup.
+Visitors choose an NDA request or introductory meeting, provide name, company, email and an optional preferred time, then review a message locally. They can open a draft addressed to `umesh@tcg.ind.in` or WhatsApp +91 82177 16904, or copy the message into their usual email service. Sending takes place in the visitor’s selected app. No agreement is signed, availability is queried or meeting reserved by this form. The owner confirmed retaining WhatsApp and the independent bot avatar on 15 October 2026. Legal wording and calendar setup remain pending.
 
 `engagement.js` contains the shared branded service guide and request flow. The guide answers from a bounded, local TCG service knowledge base. It does not use Gemini or a remote model. It retains the latest six questions in this browser tab’s session storage, with a Clear chat control. Request form details are not persisted. The introductory input collapses after 12 seconds of inactivity without hiding a focused input or an open conversation.
 
-To activate signing and real scheduling later: confirm TCG’s registered contracting entity and approved NDA; choose a signature provider with a completed-document record and notifications; connect Umesh’s calendar to a scheduler that checks busy time privately and sends invitations to both parties. Gate booking on verified signing status if required. Do not treat a browser checkbox or WhatsApp draft as a signed NDA or a confirmed booking.
+To activate signing and real scheduling later: confirm TCG’s registered contracting entity and approved NDA; choose a signature provider with a completed-document record and notifications; connect Umesh’s calendar to a scheduler that checks busy time privately and sends invitations to both parties. Gate booking on verified signing status if required. Do not treat a browser checkbox or email draft as a signed NDA or a confirmed booking.
 
 ## Interaction controls
 

@@ -1,4 +1,58 @@
-# TCG SEO audit - 13 October 2026
+# TCG content and SEO review - 15 October 2026
+
+## Latest review
+
+Reviewed the 23 public pages, shared navigation/footer, all eight service practices, four sectors, four project descriptions, Wealth FAQs and enquiry/assistant wording. Changes preserve the approved design, existing images, actual engagement scopes and the homepage promise: “We solve problems.”
+
+- Replaced generic service section headings with specific buyer questions and deliverables. Each page now has a distinct search title and description. Homepage title remains “TCG” at the owner’s request; this is a deliberate tradeoff against a more descriptive title.
+- TCG Wealth now leads with “Big plans. Let’s talk funds.” Its short hero introduces business funding; the next sections explain expansion, operating funds and opportunity funding, followed by the enquiry process. Removed duplicate hero paragraphs and caption. Added a working “See how it works” link.
+- Retained “working capital finance” only in a plain-English FAQ. “Funds” alone is broad and can mean investment funds, so page titles and descriptions use business funding. No measured search-volume claims are made.
+- Updated service and sector descriptions, clarified legal coordination, strengthened the Gully Bowls scope and corrected the visible project breadcrumb to match structured data. Added Contact breadcrumb schema.
+- WhatsApp and the independent bot avatar are retained following the owner’s latest instruction on 15 October. Enquiries offer email and WhatsApp drafts, plus a copy-message fallback. No message is sent automatically, NDA signed or calendar slot booked.
+
+## Checks completed locally
+
+All 23 generated pages pass checks for unique titles and descriptions, one H1, canonical consistency, parseable structured data, existing internal links and assets, image alt attributes, crawlable URLs, indexability, absence of long dashes, and responsive hero file-size budgets. The browser loaded all 23 routes at 390px without horizontal overflow or broken loaded images. The Wealth hero was visually checked on desktop and mobile. The Wealth CTA retains its funding context when opening the NDA/meeting form. Both draft URLs preserve names, company, email and service selection with correct encoding. Service routing and section-navigation checks pass.
+
+These are implementation checks, not proof of indexing, rankings, conversion performance or field Core Web Vitals. The final live HTTP checks are saved alongside this task’s output as TCG-Live-SEO-Checks-2026-10-15.json after deployment.
+
+## Search intent by page
+
+| Page | Reader need / primary topic |
+| --- | --- |
+| / | Business consulting for startups and established businesses |
+| /services | Compare consulting services and connected expertise |
+| /services/strategy | Business strategy, plans and go-to-market planning |
+| /services/marketing | Digital marketing, SEO content and lead generation planning |
+| /services/brand | Brand positioning, identity and website design |
+| /services/operations | Operations consulting, SOPs and process improvement |
+| /services/technology | Custom software, operations platforms and automation |
+| /services/finance | Financial modelling and pitch decks |
+| /services/compliance | Incorporation, GST and compliance coordination |
+| /services/legal | Business contracts and legal coordination |
+| /industries | Find consulting expertise relevant to a sector |
+| /industries/hospitality | Restaurant and hospitality consulting |
+| /industries/logistics | Logistics workflows and custom operations software |
+| /industries/real-estate | Property management software, co-living brand and websites |
+| /industries/performance | Sports business planning, pricing and launch preparation |
+| /work | Evidence of client scope and practical deliverables |
+| /work/gully-bowls | Hospitality financial model, pitch deck and operational tools |
+| /work/sp-freight | Logistics software, reporting and finance exports |
+| /work/the-switch | Co-living identity, website and investor materials |
+| /work/cashmyrent | Property management platform and staff workflows |
+| /about | Founder, business identity and approach |
+| /wealth | Business funding for expansion and daily operations |
+| /contact | Introductions, NDA requests and meeting enquiries |
+
+## What remains outside this review
+
+Search Console ownership is not established. Google-selected canonicals, indexing coverage, search queries, clicks, impressions and actual rankings remain unverified. No keyword-volume dataset or field Core Web Vitals data was available. The next SEO step is to verify the existing Search Console property, submit the sitemap if needed and inspect page-level performance before further content expansion. No location pages, testimonials, ratings or funding guarantees were invented.
+
+Writing follows [Google’s SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide): clear, useful content and descriptive page context. Natural search terminology matters more than replacing every occurrence of one word. [Google’s title guidance](https://developers.google.com/search/docs/appearance/title-link) also supports concise, descriptive titles.
+
+---
+
+## Previous technical audit - 13 October 2026
 
 ## Main finding
 

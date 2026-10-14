@@ -59,7 +59,9 @@ const services = [
         "What should I prepare for a strategy discussion?",
         "Bring a short description of the business, your customers, the decision you are facing and what you have tried. Any existing plans or performance information can help define the work; you do not need a finished brief to begin."
       ]
-    ]
+    ],
+    "overviewHeading": "Make the next<br>business decision clearer.",
+    "deliverablesHeading": "Business plans.<br><em>Practical growth strategy.</em>"
   },
   {
     "id": "marketing",
@@ -121,7 +123,9 @@ const services = [
         "Can marketing work include brand positioning or website changes?",
         "Yes. If the proposition is unclear or the website makes enquiries difficult, TCG can connect marketing with brand strategy and website work. Those deliverables are defined in the engagement scope."
       ]
-    ]
+    ],
+    "overviewHeading": "Give the right people<br>a reason to choose you.",
+    "deliverablesHeading": "Digital marketing,<br><em>with a clear purpose.</em>"
   },
   {
     "id": "brand",
@@ -184,7 +188,9 @@ const services = [
         "Does a branding engagement include a website?",
         "Website strategy, content structure and design can be included alongside brand work. The agreed scope sets out which brand assets and digital deliverables are included."
       ]
-    ]
+    ],
+    "overviewHeading": "Make your value<br>easy to understand.",
+    "deliverablesHeading": "Positioning, identity<br><em>and website design.</em>"
   },
   {
     "id": "operations",
@@ -215,7 +221,7 @@ const services = [
       ],
       [
         "Web-based management platforms",
-        "Bring operational workflows into a custom platform, developed with our Technology & Product practice."
+        "Bring operational workflows into a custom platform, developed with our custom software team."
       ]
     ],
     "questions": [
@@ -247,7 +253,9 @@ const services = [
         "Can you help reduce dependence on the founder?",
         "The work can establish repeatable routines, clear responsibilities and reporting that make everyday decisions easier to delegate. The plan depends on your team, current processes and the decisions that keep returning to the founder."
       ]
-    ]
+    ],
+    "overviewHeading": "Less firefighting.<br>A better way to run.",
+    "deliverablesHeading": "Processes your<br><em>team can work with.</em>"
   },
   {
     "id": "technology",
@@ -310,7 +318,9 @@ const services = [
         "How is a software project scoped?",
         "We define the users, workflows, required information and core actions before agreeing the deliverables. The scope should also clarify integrations, testing, rollout and any ongoing support requirements."
       ]
-    ]
+    ],
+    "overviewHeading": "Your workflow.<br>Software that fits.",
+    "deliverablesHeading": "Custom platforms.<br><em>Connected workflows.</em>"
   },
   {
     "id": "finance",
@@ -373,7 +383,9 @@ const services = [
         "Is pitch deck support the same as arranging business funding?",
         "No. Pitch deck and financial modelling services help you explain and evaluate the business. Business funding enquiries are handled through TCG Wealth, with availability, eligibility and terms discussed separately."
       ]
-    ]
+    ],
+    "overviewHeading": "Know the numbers.<br>Explain the opportunity.",
+    "deliverablesHeading": "Financial models.<br><em>Pitch decks that make sense.</em>"
   },
   {
     "id": "compliance",
@@ -431,13 +443,15 @@ const services = [
         "What information should we share in the first conversation?",
         "Start with your entity type, business stage, the compliance issue and any known deadlines. The initial website enquiry does not require financial documents or identification records."
       ]
-    ]
+    ],
+    "overviewHeading": "Keep business obligations<br>in clear view.",
+    "deliverablesHeading": "Incorporation, tax<br><em>and compliance support.</em>"
   },
   {
     "id": "legal",
     "n": "08",
-    "name": "Legal & business advisory",
-    "short": "Legal & advisory",
+    "name": "Business contracts & legal coordination",
+    "short": "Contracts & legal coordination",
     "line": "Big move?<br><em>Read the small print.</em>",
     "intro": "Business agreements, contract support, NDAs and legal advisory coordination that help clarify responsibilities before you take the next step.",
     "tags": [
@@ -489,7 +503,9 @@ const services = [
         "How do you scope a contract or advisory enquiry?",
         "Begin with the business relationship, the decision or issue involved, and any relevant timeline. The team can then establish the appropriate scope and documentation needed for the next discussion."
       ]
-    ]
+    ],
+    "overviewHeading": "Agree the details<br>before the next step.",
+    "deliverablesHeading": "Business contracts<br><em>and legal coordination.</em>"
   }
 ];
 const sectors = [
@@ -573,7 +589,7 @@ const sectors = [
     "name": "Real estate, PropTech & co-living",
     "short": "Real estate & PropTech",
     "intro": "Brand strategy, websites and property management software for real estate, PropTech and co-living businesses.",
-    "body": "A property business is both an experience and an operating system. We connect its brand, investor story and day-to-day management into one coherent foundation.",
+    "body": "A property business needs to attract residents and keep daily operations running smoothly. We connect brand positioning, websites, investor materials and property management software, from rent reporting to staff workflows.",
     "types": [
       "Managed co-living",
       "Property management",
@@ -650,7 +666,7 @@ const cases = [
     "title": "From the recipe<br>to the whole business.",
     "short": "Connecting the kitchen to the financial model.",
     "scope": "Finance · Operations · Investor materials",
-    "summary": "A financial and operational toolkit connecting the detail of recipes with the wider business model.",
+    "summary": "For Gully Bowls, TCG connected recipe costing with a financial model, investor pitch deck, SOPs and sales tracking, giving the team a shared view of the business.",
     "work": [
       [
         "A financial foundation",
