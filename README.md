@@ -50,7 +50,7 @@ To activate signing and real scheduling later: confirm TCG’s registered contra
 
 ## Interaction controls
 
-`interaction.css` holds the refined CTA, assistant and section navigator styling. The assistant uses the original `assets/TCG-LOGO.png`, with the same crop as the site header. No logo drawing or mascot variant is used.
+`interaction.css` holds the refined CTA, assistant and section navigator styling. Ask TCG uses an independent generated bot avatar, `assets/assistant-avatar.webp`. It is not derived from the TCG logo. The supplied `assets/TCG-LOGO.png` remains unchanged in the site header, footer and conversation chooser. Generation prompt and provenance: `assets/assistant-avatar.md`.
 
 The navigation and closing CTA open a native dialog with meeting, NDA and WhatsApp routes. Service context is retained in the contact query string; `journey=meeting` selects the introductory meeting flow. Links still reach contact without JavaScript. Escape closes the dialog and restores focus.
 
