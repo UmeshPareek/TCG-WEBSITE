@@ -4,6 +4,7 @@ const whatsappDraft=text=>TCG_WHATSAPP+'?text='+encodeURIComponent(text);
 function conversationForm(interest){return `<form id="conversation-form"><fieldset class="conversation-choice"><legend>How would you like to begin?</legend><label><input type="radio" name="journey" value="nda" checked><span>NDA first<small>Protect the idea before we discuss it.</small></span></label><label><input type="radio" name="journey" value="meeting"><span>Introductory meeting<small>Start with a general conversation.</small></span></label></fieldset><div class="form-grid"><div class="field"><label for="visitor-name">Your name *</label><input id="visitor-name" name="name" autocomplete="name" required maxlength="100" placeholder="Full name"></div><div class="field"><label for="visitor-company">Company / venture *</label><input id="visitor-company" name="company" autocomplete="organization" required maxlength="150" placeholder="Your business name"></div><div class="field full"><label for="visitor-email">Email *</label><input id="visitor-email" name="email" type="email" autocomplete="email" required maxlength="180" placeholder="you@company.com"></div><div class="field full"><label for="visitor-interest">What would you like to explore?</label><select id="visitor-interest" name="interest"><option value="">Help me find the right starting point</option>${services.map(s=>`<option value="${s.id}" ${interest===s.id?'selected':''}>${s.name}</option>`).join('')}<option value="wealth" ${interest==='wealth'?'selected':''}>TCG Wealth / business funding</option></select></div><div class="field full"><label for="visitor-time">Preferred meeting time (optional)</label><input id="visitor-time" name="time" maxlength="180" placeholder="e.g. Thursday afternoon, India time"><span class="field-help">A preference only. Umesh will confirm availability with you.</span></div></div><p class="form-notice" id="request-notice">This requests an NDA for review. It does not sign an agreement or confirm a meeting. Keep confidential details out of this introduction.</p><button class="btn" type="submit">Review your request <span aria-hidden="true">↗</span></button><div id="conversation-result" tabindex="-1" hidden aria-live="polite"></div></form>`;}
 function bindConversation(){
  const form=document.getElementById('conversation-form'), result=document.getElementById('conversation-result');
+ if(new URLSearchParams(location.search).get('journey')==='meeting'){form.elements.journey.value='meeting';document.getElementById('request-notice').textContent='This requests an introductory meeting. Umesh will confirm a suitable time with you. No calendar slot is reserved by this form.';}
  form.addEventListener('change',()=>{result.hidden=true;document.getElementById('request-notice').textContent=form.elements.journey.value==='nda'?'This requests an NDA for review. It does not sign an agreement or confirm a meeting. Keep confidential details out of this introduction.':'This requests an introductory meeting. Umesh will confirm a suitable time with you. No calendar slot is reserved by this form.';});
  form.addEventListener('input',()=>{result.hidden=true;});
  form.addEventListener('submit',e=>{
@@ -44,9 +45,10 @@ function assistantAnswer(query){
 }
 function initAssistant(){
  if(document.getElementById('tcg-assistant'))return;
- const face=`<svg class="assistant-face" aria-hidden="true" viewBox="0 0 48 48"><rect x="3" y="4" width="12" height="39" rx="1"/><rect x="18" y="4" width="12" height="39" rx="1"/><rect x="33" y="4" width="12" height="39" rx="1"/><circle cx="11" cy="22" r="2.3"/><circle cx="37" cy="22" r="2.3"/><path d="M20 31h8"/></svg>`;
+ const mark=`<span class="logo-crop assistant-logo"><img src="/assets/TCG-LOGO.png" alt="TCG"></span>`;
  const el=document.createElement('aside');el.id='tcg-assistant';el.setAttribute('aria-label','TCG service assistant');
- el.innerHTML=`<div class="assistant-teaser"><button class="teaser-open" aria-label="Open TCG assistant">${face}</button><form id="teaser-form"><label class="sr-only" for="teaser-input">Ask TCG a question</label><input id="teaser-input" maxlength="500" placeholder="What can we help you solve?" autocomplete="off"><button type="submit" aria-label="Ask TCG">↗</button></form><button class="teaser-close" aria-label="Collapse assistant">×</button></div><button class="assistant-launch" aria-label="Open TCG assistant" aria-expanded="false" aria-controls="assistant-panel" hidden>${face}<span>Ask TCG</span></button><section id="assistant-panel" aria-labelledby="assistant-title" hidden><div class="assistant-heading">${face}<div><h2 id="assistant-title">Ask TCG</h2><p>Useful answers. A human next step.</p></div><button class="assistant-close" aria-label="Close assistant">×</button></div><div class="assistant-messages" role="log" aria-label="Conversation" aria-live="polite"></div><div class="assistant-quick"><button data-question="What services do you offer?">Our services</button><button data-question="Can I request an NDA?">NDA first</button><button data-question="How do I book a meeting?">Meet Umesh</button></div><form id="assistant-form"><label class="sr-only" for="assistant-input">Your question</label><input id="assistant-input" maxlength="500" autocomplete="off" placeholder="Ask a basic question…" required><button aria-label="Send question" type="submit">↗</button></form><div class="assistant-bottom"><span>Service guide, not a live agent.</span><button class="assistant-reset">Clear chat</button></div><p class="assistant-privacy">This chat stays in this browser tab. Share confidential details only after agreeing an NDA.</p></section>`;
+ el.innerHTML=`<div class="assistant-teaser"><button class="teaser-open" aria-label="Open TCG assistant">${mark}</button><form id="teaser-form"><label class="sr-only" for="teaser-input">Ask TCG a question</label><input id="teaser-input" maxlength="500" placeholder="What’s your next move?" autocomplete="off"><button type="submit" aria-label="Ask TCG">↗</button></form><button class="teaser-close" aria-label="Collapse assistant">×</button></div><button class="assistant-launch" aria-label="Open TCG assistant" aria-expanded="false" aria-controls="assistant-panel" hidden>${mark}<span>Ask TCG</span><span class="launch-arrow" aria-hidden="true">↗</span></button><section id="assistant-panel" aria-labelledby="assistant-title" hidden><div class="assistant-heading">${mark}<div><span class="assistant-kicker">THE CONSULTING GROUP</span><h2 id="assistant-title">Ask TCG</h2></div><button class="assistant-close" aria-label="Close assistant">×</button></div><div class="assistant-messages" role="log" aria-label="Conversation" aria-live="polite"></div><div class="assistant-human-line"><span>A real conversation?</span><a href="/contact?journey=meeting">Meet Umesh <span aria-hidden="true">↗</span></a></div><form id="assistant-form"><label class="sr-only" for="assistant-input">Your question</label><input id="assistant-input" maxlength="500" autocomplete="off" placeholder="Ask us about your next move…" required><button aria-label="Send question" type="submit" disabled>↗</button></form><div class="assistant-bottom"><span>TCG’s automated service guide</span><button class="assistant-reset">Clear chat</button></div><p class="assistant-privacy">Saved in this tab only. Keep confidential details for after your NDA.</p></section>`;
+
  document.body.append(el);
  const teaser=el.querySelector('.assistant-teaser'), launcher=el.querySelector('.assistant-launch'),panel=el.querySelector('#assistant-panel'),input=el.querySelector('#assistant-input'),log=el.querySelector('.assistant-messages');
  const read=key=>{try{return sessionStorage.getItem(key);}catch{return null;}};
@@ -58,18 +60,84 @@ function initAssistant(){
   row.innerHTML=`<p class="visitor-message">${esc(query)}</p><div class="assistant-reply"><p>${esc(answer.text)}</p><a href="${answer.href}">${answer.label} ↗</a><a class="assistant-human" href="${whatsappDraft('Hi Umesh, I visited the TCG website and would like to discuss: '+query)}" target="_blank" rel="noopener noreferrer">Continue with Umesh on WhatsApp ↗</a></div>`;
   log.append(row);
  };
- const draw=()=>{log.innerHTML='<p class="assistant-welcome">A business challenge on your mind? Ask about our services, request an NDA or find a time to talk.</p>';messages.forEach(m=>addReply(m.query));};draw();
+ const draw=()=>{log.innerHTML=messages.length?'<div class="assistant-conversation-label">YOUR CONVERSATION</div>':`<div class="assistant-welcome"><span class="assistant-kicker">A GOOD PLACE TO START</span><h3>What’s on<br><em>your mind?</em></h3><p>A business challenge. A new ambition.<br>Let’s find your next step.</p><div class="assistant-paths"><button data-question="What services do you offer?"><span class="path-index">01</span><span>Find the right expertise</span><span aria-hidden="true">↗</span></button><button data-question="Can I request an NDA?"><span class="path-index">02</span><span>Start with an NDA</span><span aria-hidden="true">↗</span></button><button data-question="How do I book a meeting?"><span class="path-index">03</span><span>Talk to Umesh</span><span aria-hidden="true">↗</span></button></div></div>`;messages.forEach(m=>addReply(m.query));};draw();
+
  const collapse=()=>{if(!panel.hidden||teaser.contains(document.activeElement)||el.querySelector('#teaser-input').value.trim())return;teaser.hidden=true;launcher.hidden=false;save('tcg-assistant-seen','1');};
- const open=()=>{teaser.hidden=true;launcher.hidden=true;panel.hidden=false;launcher.setAttribute('aria-expanded','true');save('tcg-assistant-seen','1');input.focus();log.scrollTop=log.scrollHeight;};
- const close=()=>{panel.hidden=true;teaser.hidden=true;launcher.hidden=false;launcher.setAttribute('aria-expanded','false');launcher.focus();};
- const send=query=>{query=query.trim().slice(0,500);if(!query)return;open();messages.push({query});messages=messages.slice(-6);save('tcg-chat-v1',JSON.stringify(messages));draw();input.value='';log.scrollTop=log.scrollHeight;};
+ const open=()=>{teaser.hidden=true;launcher.hidden=true;panel.hidden=false;launcher.setAttribute('aria-expanded','true');save('tcg-assistant-seen','1');input.focus({preventScroll:true});log.scrollTop=messages.length?log.scrollHeight:0;};
+ const close=()=>{panel.hidden=true;teaser.hidden=true;launcher.hidden=false;launcher.setAttribute('aria-expanded','false');launcher.focus({preventScroll:true});};
+ const send=query=>{query=query.trim().slice(0,500);if(!query)return;open();messages.push({query});messages=messages.slice(-6);save('tcg-chat-v1',JSON.stringify(messages));draw();input.value='';el.querySelector('#assistant-form button').disabled=true;log.scrollTop=log.scrollHeight;};
  launcher.onclick=open;el.querySelector('.teaser-open').onclick=open;el.querySelector('.assistant-close').onclick=close;
- el.querySelector('.teaser-close').onclick=()=>{teaser.hidden=true;launcher.hidden=false;save('tcg-assistant-seen','1');launcher.focus();};
+ el.querySelector('.teaser-close').onclick=()=>{teaser.hidden=true;launcher.hidden=false;save('tcg-assistant-seen','1');launcher.focus({preventScroll:true});};
  el.querySelector('#teaser-form').onsubmit=e=>{e.preventDefault();const first=el.querySelector('#teaser-input');if(first.value.trim())send(first.value);else open();first.value='';};
  el.querySelector('#assistant-form').onsubmit=e=>{e.preventDefault();send(input.value);};
- el.querySelectorAll('[data-question]').forEach(b=>b.onclick=()=>send(b.dataset.question));
- el.querySelector('.assistant-reset').onclick=()=>{messages=[];save('tcg-chat-v1','[]');draw();input.focus();};
+ el.addEventListener('click',e=>{const choice=e.target.closest('[data-question]');if(choice)send(choice.dataset.question);});
+ input.addEventListener('input',()=>{el.querySelector('#assistant-form button').disabled=!input.value.trim();});
+ el.querySelector('.assistant-reset').onclick=()=>{messages=[];save('tcg-chat-v1','[]');draw();input.value='';el.querySelector('#assistant-form button').disabled=true;input.focus({preventScroll:true});};
  el.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();close();}});
  if(read('tcg-assistant-seen'))collapse();else setTimeout(collapse,12000);
  teaser.addEventListener('focusout',()=>{if(!el.querySelector('#teaser-input').value)setTimeout(collapse,12000);});
+}
+
+function initConversationMenu(){
+ if(document.getElementById('conversation-menu'))return;
+ const dialog=document.createElement('dialog');dialog.id='conversation-menu';dialog.setAttribute('aria-labelledby','conversation-menu-title');
+ dialog.innerHTML=`<div class="conversation-menu-top"><span class="logo-crop"><img src="/assets/TCG-LOGO.png" alt="TCG"></span><button class="conversation-menu-close" aria-label="Close conversation options" autofocus>×</button></div><span class="assistant-kicker">YOUR NEXT CHAPTER</span><h2 id="conversation-menu-title">A good place<br>to <em>begin.</em></h2><p>Bring the ambition. Or the thing in the way.<br>We’ll take it from there.</p><div class="conversation-menu-paths"><a data-journey="meeting" href="/contact?journey=meeting"><span class="path-index">01</span><span><strong>Let’s solve your challenge</strong><small>A direct introduction to Umesh.</small></span><span aria-hidden="true">↗</span></a><a data-journey="nda" href="/contact?journey=nda"><span class="path-index">02</span><span><strong>NDA first. Then the idea.</strong><small>Request confidentiality before the details.</small></span><span aria-hidden="true">↗</span></a><a href="${whatsappDraft('Hi Umesh, I’d like to discuss a business challenge with TCG.')}" target="_blank" rel="noopener noreferrer"><span class="path-index">03</span><span><strong>A quick hello on WhatsApp</strong><small>Start a conversation with Umesh.</small></span><span aria-hidden="true">↗</span></a></div><div class="conversation-menu-foot">THE CONSULTING GROUP<span>BENGALURU, INDIA</span></div>`;
+ document.body.append(dialog);let opener;
+ const close=()=>dialog.close();
+ dialog.querySelector('.conversation-menu-close').onclick=close;
+ dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();}});
+ dialog.addEventListener('close',()=>{document.body.classList.remove('conversation-open');opener?.focus({preventScroll:true});});
+ document.querySelectorAll('[data-conversation-open]').forEach(a=>a.addEventListener('click',e=>{
+  if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  if(typeof dialog.showModal!=='function')return;
+  e.preventDefault();opener=a;
+  if(document.body.classList.contains('menu-open')){const toggle=document.querySelector('.mobile-toggle');toggle.click();opener=toggle;}
+  const target=new URL(a.href,location.origin);
+  dialog.querySelectorAll('[data-journey]').forEach(choice=>{const next=new URL(target);next.searchParams.set('journey',choice.dataset.journey);choice.href=next.pathname+next.search;});
+  document.body.classList.add('conversation-open');dialog.showModal();
+ }));
+}
+
+// The same down-arrow behavior serves the hero and the persistent page control.
+function nextSectionStop(stops,current,max){
+ if(current>=max-8)return {top:0,isTop:true};
+ const next=stops.find(stop=>stop.top>current+45);
+ return next?{...next,isTop:false}:{top:max,isTop:false,label:'page footer'};
+}
+function initSectionNavigation(){
+ if(document.getElementById('section-navigator'))return;
+ const control=document.createElement('button');control.id='section-navigator';control.type='button';
+ control.innerHTML='<span class="section-nav-label">Next section</span><span class="section-nav-ring"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/></svg><span class="section-nav-arrow" aria-hidden="true">↓</span></span>';
+ document.body.append(control);
+ const hero=document.getElementById('find-problem');
+ const state=()=>{
+  const header=document.getElementById('header');const offset=header.getBoundingClientRect().height+20;
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  const sections=[...document.querySelectorAll('main > section,main > figure,#footer')].filter(s=>s.getClientRects().length);
+  const stops=sections.map(s=>({top:Math.max(0,Math.min(max,s.getBoundingClientRect().top+scrollY-offset)),label:s.querySelector('h2,h1')?.innerText.replace(/\s+/g,' ').trim()||(s.id==='footer'?'page footer':'next section')}));
+  return {max,next:nextSectionStop(stops,scrollY,max)};
+ };
+ const refresh=()=>{
+  const {max,next}=state();
+  control.hidden=max<50||Boolean(hero&&hero.getBoundingClientRect().bottom>105);
+  control.setAttribute('aria-label',next.isTop?'Back to top':'Scroll to '+next.label);
+  control.querySelector('.section-nav-label').textContent=next.isTop?'Back to top':'Next section';
+  control.querySelector('.section-nav-arrow').textContent=next.isTop?'↑':'↓';
+  control.style.setProperty('--page-progress',max?Math.min(1,scrollY/max):0);
+ };
+ let moving=false,finishTimer;
+ const finish=()=>{moving=false;control.disabled=false;if(hero)hero.disabled=false;clearTimeout(finishTimer);refresh();};
+ const advance=()=>{
+  if(moving)return;
+  const {next}=state();moving=true;control.disabled=true;if(hero)hero.disabled=true;
+  window.scrollTo({top:next.top,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  const settled=()=>{if(!moving)return;if(Math.abs(scrollY-next.top)<3){finish();return;}requestAnimationFrame(settled);};
+  requestAnimationFrame(settled);finishTimer=setTimeout(finish,1400);
+ };
+ window.addEventListener('wheel',()=>{if(moving)finish();},{passive:true});window.addEventListener('touchstart',()=>{if(moving)finish();},{passive:true});
+ control.onclick=advance;if(hero){hero.onclick=advance;hero.setAttribute('aria-label','Scroll to what TCG does');}
+ let queued=false;const schedule=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;refresh();});};
+ window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);window.addEventListener('load',schedule,{once:true});
+ if('ResizeObserver' in window)new ResizeObserver(schedule).observe(document.getElementById('main'));
+ refresh();
 }

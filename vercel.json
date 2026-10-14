@@ -42,7 +42,7 @@
       ]
     },
     {
-      "source": "/(app.js|content.js|experience.js|engagement.js|seo.js|styles.css)",
+      "source": "/(app.js|content.js|experience.js|engagement.js|seo.js|styles.css|interaction.css)",
       "headers": [
         {
           "key": "Cache-Control",

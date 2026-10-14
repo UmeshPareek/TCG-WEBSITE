@@ -48,6 +48,14 @@ Visitors choose an NDA request or introductory meeting, provide name, company, e
 
 To activate signing and real scheduling later: confirm TCG’s registered contracting entity and approved NDA; choose a signature provider with a completed-document record and notifications; connect Umesh’s calendar to a scheduler that checks busy time privately and sends invitations to both parties. Gate booking on verified signing status if required. Do not treat a browser checkbox or WhatsApp draft as a signed NDA or a confirmed booking.
 
+## Interaction controls
+
+`interaction.css` holds the refined CTA, assistant and section navigator styling. The assistant uses the original `assets/TCG-LOGO.png`, with the same crop as the site header. No logo drawing or mascot variant is used.
+
+The navigation and closing CTA open a native dialog with meeting, NDA and WhatsApp routes. Service context is retained in the contact query string; `journey=meeting` selects the introductory meeting flow. Links still reach contact without JavaScript. Escape closes the dialog and restores focus.
+
+The homepage down arrow and persistent section control share one scroll controller. The control follows the page sections, shows reading progress, and returns to the top at the page end. It guards against overlapping clicks during smooth scrolling, respects reduced motion, and stays separate from Ask TCG.
+
 ## Design handoff
 
 The original V4 prototype and reference captures remain in [`designs/v4/`](designs/v4/), including [the handoff](designs/v4/TCG-V4-Design-Handoff.md), [page gallery](designs/v4/TCG-V4-Design-Boards.html), and [asset provenance](designs/v4/TCG-V4-Asset-Notes.md). These document the original design stage; the root contains the public-site adaptations.
