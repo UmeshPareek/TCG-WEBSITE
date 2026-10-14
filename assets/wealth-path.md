@@ -1,0 +1,9 @@
+# TCG Wealth: the next chapter
+
+Generated concept artwork using the built-in image generation tool on 15 October 2026. This depicts an imagined architectural landscape, not a real location or TCG project. Existing brand artwork and bot avatar were not modified.
+
+Web assets: `wealth-path.webp` (1672 × 941, 62,470 bytes) and `wealth-path-960.webp` (960 × 541, 18,946 bytes). Source retained in the task outputs as `TCG-Wealth-Path-Source.png`. Both WebP versions were encoded with cwebp.
+
+## Final generation prompt
+
+Use case: conceptual-editorial. Asset type: premium business consulting website hero background, 16:9 landscape. Create an arresting, sophisticated cinematic architectural art photograph: a single elegant deep oxblood-red sculptural walkway sweeps from the lower center-right into an open warm ivory illuminated horizon, across a dark charcoal landscape of gently folded stone. A tangible metaphor of business possibility, calm confidence and forward movement. Monumental but minimal, credible physical materials, finely textured dark stone, matte red painted metal, soft volumetric dusk light, subtle film grain, luxury editorial art direction. Composition is vital: the left 50 percent is quiet near-black charcoal negative space for a large white headline, the far right 25 percent also remains dark enough for short white body text. The stunning curved red pathway and distant ivory opening primarily occupy the center-right upper area, especially x 50-75 percent, above the middle. Show depth and a destination, not stairs or a graph. Render as a beautiful continuous photographic image, no design board, no typography, no logos, no people, no coins, no money, no charts, no finance icons, no skyscraper facade. Palette strictly charcoal, warm ivory, muted TCG oxblood red (#a32a20), no blue or green. Avoid glossy plastic or cartoon appearance. Generate a landscape image with an approximately 16:9 aspect ratio.

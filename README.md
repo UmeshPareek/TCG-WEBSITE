@@ -54,6 +54,8 @@ To activate signing and real scheduling later: confirm TCG’s registered contra
 
 The navigation and closing CTA open a native dialog with meeting, NDA and WhatsApp routes. Service context is retained in the contact query string; `journey=meeting` selects the introductory meeting flow. Links still reach contact without JavaScript. Escape closes the dialog and restores focus.
 
+The floating assistant and persistent section control are hidden on first arrival on every page and appear after 160px of scrolling. They hide again at the top; an open or focused assistant remains accessible. The in-content homepage arrow remains available.
+
 The homepage down arrow and persistent section control share one scroll controller. The control follows the page sections, shows reading progress, and returns to the top at the page end. It guards against overlapping clicks during smooth scrolling, respects reduced motion, and stays separate from Ask TCG.
 
 ## Design handoff
@@ -61,3 +63,5 @@ The homepage down arrow and persistent section control share one scroll controll
 The original V4 prototype and reference captures remain in [`designs/v4/`](designs/v4/), including [the handoff](designs/v4/TCG-V4-Design-Handoff.md), [page gallery](designs/v4/TCG-V4-Design-Boards.html), and [asset provenance](designs/v4/TCG-V4-Asset-Notes.md). These document the original design stage; the root contains the public-site adaptations.
 
 The hero cityscape is generated concept imagery, not a documentary photograph of a named location. Client artwork is labelled conceptual presentation material. No client results or funding guarantees have been invented.
+
+The Wealth hero uses generated concept artwork at `assets/wealth-path.webp`, with a smaller responsive variant. See `assets/wealth-path.md` for the generation prompt and provenance.

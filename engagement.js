@@ -142,3 +142,22 @@ function initSectionNavigation(){
  if('ResizeObserver' in window)new ResizeObserver(schedule).observe(document.getElementById('main'));
  refresh();
 }
+
+// Give the opening content priority. Utilities appear after a deliberate scroll.
+function initFloatingVisibility(){
+ const assistant=document.getElementById('tcg-assistant'), navigator=document.getElementById('section-navigator');
+ const update=()=>{
+  const visible=scrollY>=160;
+  const engaged=assistant.contains(document.activeElement)||!assistant.querySelector('#assistant-panel').hidden;
+  document.body.classList.toggle('utilities-ready',visible);
+  document.body.classList.toggle('assistant-engaged',engaged);
+  assistant.inert=!visible&&!engaged;
+  if(!visible&&document.activeElement===navigator)document.getElementById('main').focus({preventScroll:true});
+  navigator.inert=!visible;
+ };
+ let pending=false;
+ const schedule=()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;update();});};
+ window.addEventListener('scroll',schedule,{passive:true});
+ assistant.addEventListener('focusin',schedule);assistant.addEventListener('focusout',schedule);assistant.addEventListener('click',schedule);
+ update();
+}
