@@ -99,6 +99,20 @@ function initConversationMenu(){
  }));
 }
 
+// Match the snap boundary to the actual header, including the overlay homepage.
+function sectionHeaderOffset(){
+ const header=document.getElementById('header');
+ const position=getComputedStyle(header).position;
+ return position==='sticky'||position==='fixed'?Math.ceil(header.getBoundingClientRect().height):0;
+}
+function initViewportSections(){
+ const root=document.documentElement;
+ const update=()=>root.style.setProperty('--section-offset',sectionHeaderOffset()+'px');
+ update();root.classList.add('viewport-flow');
+ if('ResizeObserver' in window)new ResizeObserver(update).observe(document.getElementById('header'));
+ window.addEventListener('resize',update,{passive:true});
+}
+
 // The same down-arrow behavior serves the hero and the persistent page control.
 function nextSectionStop(stops,current,max){
  if(current>=max-8)return {top:0,isTop:true};
@@ -112,7 +126,7 @@ function initSectionNavigation(){
  document.body.append(control);
  const hero=document.getElementById('find-problem');
  const state=()=>{
-  const header=document.getElementById('header');const offset=header.getBoundingClientRect().height+20;
+  const offset=sectionHeaderOffset();
   const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
   const sections=[...document.querySelectorAll('main > section,main > figure,#footer')].filter(s=>s.getClientRects().length);
   const stops=sections.map(s=>({top:Math.max(0,Math.min(max,s.getBoundingClientRect().top+scrollY-offset)),label:s.querySelector('h2,h1')?.innerText.replace(/\s+/g,' ').trim()||(s.id==='footer'?'page footer':'next section')}));

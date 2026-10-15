@@ -24,3 +24,14 @@ assert.equal(next(stops,0,1600).top,600);assert.equal(next(stops,600,1600).top,1
 assert.equal(next(stops,1120,1600).top,1600);assert.equal(next(stops,1600,1600).isTop,true);assert.equal(next(stops,1600,1600).top,0);
 assert.equal(next([{top:0}],300,500).top,500);
 console.log('Verified section advancement, footer destination and return to top.');
+
+// Overlay home navigation must not reserve sticky-header space between sections.
+const measuredHeader={height:101,position:'sticky'};
+context.document={getElementById:()=>({getBoundingClientRect:()=>({height:measuredHeader.height})})};
+context.getComputedStyle=()=>({position:measuredHeader.position});
+assert.equal(vm.runInContext('sectionHeaderOffset()',context),101);
+measuredHeader.position='absolute';
+assert.equal(vm.runInContext('sectionHeaderOffset()',context),0);
+measuredHeader.position='fixed';measuredHeader.height=86.5;
+assert.equal(vm.runInContext('sectionHeaderOffset()',context),87);
+console.log('Verified sticky, overlay and responsive header offsets for section alignment.');

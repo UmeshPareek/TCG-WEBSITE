@@ -1,0 +1,36 @@
+/* One continuous document, with section-sized compositions and native scrolling. */
+:root{--section-offset:101px;--section-height:calc(100svh - var(--section-offset));scroll-padding-top:var(--section-offset)}
+:root:has(.home-route){--section-offset:0px}
+#main > section,#main > figure,#footer{scroll-snap-align:start;scroll-margin-top:0}
+#main > .cinema-hero{height:auto;min-height:var(--section-height);max-height:none;padding-top:clamp(115px,14svh,160px)}
+#main > .wealth-cinema .wealth-cinema-content{min-height:var(--section-height)}
+#main > .wealth-cinema .wealth-cinema-main{padding-top:clamp(40px,6svh,80px);padding-bottom:clamp(40px,6svh,70px)}
+
+@media(min-width:901px){
+ html.viewport-flow{scroll-snap-type:y proximity}
+ #main > section:not(.cinema-hero):not(.wealth-cinema){min-height:var(--section-height);display:flex;flex-direction:column;justify-content:center;align-items:stretch}
+ #main > section > .wrap{flex-shrink:0}
+ #main > .section,#main > .statement-band,#main > .cta{padding-top:clamp(56px,8svh,110px);padding-bottom:clamp(64px,9svh,120px)}
+ #main > .page-head{padding-top:44px;padding-bottom:64px}
+ #main > .page-head .wrap{width:92%;margin-top:auto;margin-bottom:auto}
+ #main > .sector-photo-detail{height:var(--section-height);aspect-ratio:auto;margin:0;overflow:hidden}
+ #main > .sector-photo-detail img{height:100%;width:100%;object-fit:cover}
+ #main > .sector-photo-detail figcaption{left:5%;right:5%;bottom:92px;font-size:14px}
+}
+
+/* Small screens and zoomed layouts retain natural reading heights. */
+@media(max-width:900px){html.viewport-flow{scroll-snap-type:none}}
+@media(max-width:700px){
+ :root{--section-offset:87px}
+ :root:has(.home-route){--section-offset:0px}
+ #main > .cinema-hero{padding-top:112px}
+ #main > .wealth-cinema .wealth-cinema-main{padding-top:48px;padding-bottom:36px}
+}
+/* Do not let background snapping disturb menus, dialogs or focused forms. */
+html.viewport-flow:has(.conversation-open),html.viewport-flow:has(.menu-open),html.viewport-flow:has(input:focus,textarea:focus,select:focus){scroll-snap-type:none}
+@media(prefers-reduced-motion:reduce){html.viewport-flow{scroll-snap-type:none;scroll-behavior:auto}}
+@media print{
+ :root{--section-height:0px;--section-offset:0px;scroll-snap-type:none!important}
+ #main > section,#main > .wealth-cinema .wealth-cinema-content{min-height:0!important;height:auto!important}
+ #main > .sector-photo-detail{height:auto;aspect-ratio:2.65}
+}

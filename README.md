@@ -65,3 +65,7 @@ The original V4 prototype and reference captures remain in [`designs/v4/`](desig
 The hero cityscape is generated concept imagery, not a documentary photograph of a named location. Client artwork is labelled conceptual presentation material. No client results or funding guarantees have been invented.
 
 The Wealth hero follows the homepage’s full-width photographic treatment. It uses a real close-up photograph of Indian rupee notes at `assets/photography/wealth-funds.webp`, with a smaller responsive variant and a monochrome treatment. The headline and copy identify business funding for expansion, operations and new opportunities. Its source and licence are recorded in `assets/photography/README.md`. The hero does not repeat the TCG Wealth wordmark beneath the site logo. Earlier artwork is retained as unused design exploration.
+
+## Section scrolling
+
+`viewport.css` gives desktop sections a minimum height equal to the visible viewport below the navigation. Longer sections remain full-height document content, and the native browser scroll container uses proximity snapping. The homepage has an overlay header, so its sections use the full viewport; other pages use the measured sticky-header height. Section arrows use the same offset. Mobile, reduced-motion, menus, dialogs and focused form controls use normal scrolling. No wheel or touch events are cancelled and no content is forced into a fixed-height scrolling panel.
