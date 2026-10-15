@@ -19,3 +19,7 @@ Images acquired from `https://images.pexels.com/photos/{id}/pexels-photo-{id}.jp
 ## Wealth commerce photograph, 15 October 2026
 
 `wealth-commerce.webp` and `wealth-commerce-960.webp`: [An Aerial Photography of Cargo Containers Near the Ocean](https://www.pexels.com/photo/an-aerial-photography-of-cargo-containers-near-the-ocean-7519262/), by Ollie Craig. Real aerial photograph of a working port in Gourock, Scotland. Used to illustrate trade and business operations, not a TCG-financed project, TCG office or Indian location. Free under the [Pexels licence](https://www.pexels.com/license/), checked at acquisition. Downloaded from the Pexels CDN at 1920 × 1440 and encoded locally as WebP, with a 960px variant. Colour restraint and contrast are applied in CSS.
+
+## Wealth funds photograph, 15 October 2026
+
+`wealth-funds.webp` and `wealth-funds-960.webp`: [A close-up of several bills](https://unsplash.com/photos/a-close-up-of-several-bills-LYvYbrOkEbU), by aneet singh. Real photograph of Indian 500-rupee banknotes, published 26 April 2022. Free commercial use under the [Unsplash licence](https://unsplash.com/license/), checked at acquisition. Source: `https://images.unsplash.com/photo-1650954360441-fcabbad2027d`. Optimized as 1920px and 960px WebP files; monochrome and contrast applied in CSS. Illustrates business funding, with no claim of government affiliation, a particular funding amount or funding approval. Replaces the working-port photograph in the active Wealth hero.
