@@ -15,3 +15,7 @@ Images acquired from `https://images.pexels.com/photos/{id}/pexels-photo-{id}.jp
 ## Wealth editorial photograph, 15 October 2026
 
 `wealth-editorial.webp`: [Sunlit Modern Skyscraper Facade at Dusk](https://www.pexels.com/photo/sunlit-modern-skyscraper-facade-at-dusk-30295161/), by Jailyn Funn. Source page and [Pexels licence](https://www.pexels.com/license/) checked at acquisition. Used as illustrative architecture, not a TCG office, client project or funded property. Downloaded from the Pexels image CDN, resized to 640 × 480 and encoded as WebP; grayscale presentation is applied in CSS.
+
+## Wealth commerce photograph, 15 October 2026
+
+`wealth-commerce.webp` and `wealth-commerce-960.webp`: [An Aerial Photography of Cargo Containers Near the Ocean](https://www.pexels.com/photo/an-aerial-photography-of-cargo-containers-near-the-ocean-7519262/), by Ollie Craig. Real aerial photograph of a working port in Gourock, Scotland. Used to illustrate trade and business operations, not a TCG-financed project, TCG office or Indian location. Free under the [Pexels licence](https://www.pexels.com/license/), checked at acquisition. Downloaded from the Pexels CDN at 1920 × 1440 and encoded locally as WebP, with a 960px variant. Colour restraint and contrast are applied in CSS.

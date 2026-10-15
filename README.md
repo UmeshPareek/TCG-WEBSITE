@@ -64,4 +64,4 @@ The original V4 prototype and reference captures remain in [`designs/v4/`](desig
 
 The hero cityscape is generated concept imagery, not a documentary photograph of a named location. Client artwork is labelled conceptual presentation material. No client results or funding guarantees have been invented.
 
-The Wealth hero uses minimal typography on ivory, with a small supporting photograph at `assets/photography/wealth-editorial.webp`. Its source and licence are recorded in `assets/photography/README.md`. Earlier generated artwork is retained as an unused design exploration.
+The Wealth hero follows the homepage’s full-width photographic treatment. It uses a real working-port photograph at `assets/photography/wealth-commerce.webp`, with a smaller responsive variant. Its source and licence are recorded in `assets/photography/README.md`. The hero does not repeat the TCG Wealth wordmark beneath the site logo. Earlier artwork is retained as unused design exploration.
