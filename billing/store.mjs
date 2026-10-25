@@ -1,0 +1,8 @@
+import {emptyState,BILLING_ADDRESS,PHONE,SIGNATORY} from './core.mjs';
+const DB='tcg-billing-v1';
+let connection;
+function withDefaults(state){state.settings.address ||= BILLING_ADDRESS;state.settings.phone ||= PHONE;state.settings.signatory ??= SIGNATORY;return state;}
+export function openStore(){if(connection)return connection;connection=new Promise((resolve,reject)=>{const request=indexedDB.open(DB,1);request.onupgradeneeded=()=>request.result.createObjectStore('workspace');request.onsuccess=()=>{request.result.onversionchange=()=>request.result.close();resolve(request.result)};request.onerror=()=>reject(new Error('Browser storage is unavailable. Enable site storage to use the billing desk.'));});return connection;}
+export async function read(){const db=await openStore();return new Promise((resolve,reject)=>{const tx=db.transaction('workspace');const req=tx.objectStore('workspace').get('data');req.onsuccess=()=>resolve(withDefaults(req.result||emptyState()));req.onerror=()=>reject(req.error);});}
+// One read-write transaction serializes numbering and ledger changes across tabs.
+export async function change(update){const db=await openStore();return new Promise((resolve,reject)=>{const tx=db.transaction('workspace','readwrite');const store=tx.objectStore('workspace');let state,result,error;const req=store.get('data');req.onsuccess=()=>{try{state=withDefaults(req.result||emptyState());result=update(state);store.put(state,'data')}catch(e){error=e;tx.abort()}};tx.oncomplete=()=>resolve({state,result});tx.onabort=()=>reject(error||tx.error||new Error('The record could not be saved. Nothing was changed.'));tx.onerror=()=>{error=tx.error};});}
