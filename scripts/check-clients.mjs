@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {emptyState,newInvoice,validateBackup} from '../billing/core.mjs';
+import {ensureClients,saveClient,clientFields} from '../billing/clients.mjs';
+const state=emptyState(),i=newInvoice();i.client={name:'Test Client',company:'Example',address:'Original address',email:'test@example.com',phone:'919876543210'};state.invoices.push(i,structuredClone(i));state.invoices[1].id='second';
+const original=structuredClone(state.invoices);ensureClients(state);assert.equal(state.clients.length,1);assert.deepEqual(state.invoices,original);assert.equal(ensureClients(state).clients.length,1);
+const client=state.clients[0],oldRevision=client.revision;saveClient(state,{...client,address:'Updated address'},client.id,oldRevision);assert.equal(state.clients.length,1);assert.equal(state.clients[0].address,'Updated address');assert.equal(state.invoices[0].client.address,'Original address');assert.throws(()=>saveClient(state,client,client.id,oldRevision));
+saveClient(state,{...client,address:'Current address'});assert.equal(state.clients.length,1);client.archived=true;saveClient(state,client);assert.equal(client.archived,false);
+const next=saveClient(state,{name:'Second client',company:'',address:'',email:'',phone:''});assert.equal(state.clients.length,2);assert.notEqual(next.id,client.id);
+assert.throws(()=>clientFields({name:'',company:''}));assert.throws(()=>clientFields({name:'Test',email:'invalid'}));
+const backup={format:'tcg-billing-backup',data:state};assert.equal(validateBackup(backup).clients.length,2);
+const old=structuredClone(backup);delete old.data.clients;assert.equal(validateBackup(old).clients.length,1);
+const bad=structuredClone(backup);bad.data.clients.push(bad.data.clients[0]);assert.throws(()=>validateBackup(bad));
+console.log('Verified existing-client migration, deduplication, new clients, edits, invoice snapshot preservation, stale-update protection, archived-client recovery and old/new backup compatibility.');

@@ -1,3 +1,4 @@
+import {ensureClients,validateClients} from './clients.mjs';
 export const BILLING_ADDRESS = 'Site no. 1500, Ground Floor, 19th Main Rd, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102';
 export const SIGNATORY = 'Umesh Pareek';
 export const PHONE = '+91-8217716904';
@@ -32,7 +33,7 @@ export function addPayment(i,p){requireThat(!i.voidedAt,'A void invoice cannot r
 export function reversePayment(i,id,reason){requireThat(!i.voidedAt,'A void invoice cannot be changed.');const p=i.payments.find(x=>x.id===id);requireThat(p&&!p.reversedAt,'This payment is already reversed.');requireThat(clean(reason,1000),'Enter a reason for the correction.');p.reversedAt=new Date().toISOString();p.reversalReason=reason;validateInvoice(i);i.revision++;}
 export function validateBackup(raw){requireThat(raw?.format==='tcg-billing-backup'&&raw.data?.version===1,'Choose a TCG billing backup.');const s=structuredClone(raw.data);validateSettings(s.settings);requireThat(Array.isArray(s.invoices)&&s.invoices.length<=10000,'Invalid backup records.');requireThat(s.counters&&typeof s.counters==='object'&&!Array.isArray(s.counters),'Invalid numbering history.');const ids=new Set(),numbers=new Set();const counters={};for(const [y,n] of Object.entries(s.counters)){requireThat(/^\d{2}-\d{2}$/.test(y)&&Number.isSafeInteger(n)&&n>=0&&n<=999999,'Invalid numbering history.');counters[y]=n;}
  for(const i of s.invoices){validateInvoice(i,Boolean(i.number));requireThat(!ids.has(i.id),'Duplicate invoice record in backup.');ids.add(i.id);if(i.number){requireThat(!numbers.has(i.number),'Duplicate invoice number in backup.');numbers.add(i.number);const [,y,n]=i.number.split('/');counters[y]=Math.max(counters[y]||0,+n);}}
- s.counters=counters;return s;
+ s.counters=counters;ensureClients(s);validateClients(s.clients);return s;
 }
 export function whatsappMessage(i){const t=totals(i);return `Hello ${i.client.name||i.client.company},\n\nPlease find ${i.number?'TCG invoice '+i.number:'the draft for '+(i.project||'your services')} for ${i.project||'our services'}.\n\nInvoice total: ${money(t.total)}\nPayments received (net): ${money(t.received)}\nBalance due: ${money(t.balance)}${t.credit?'\nCredit balance: '+money(t.credit):''}\nDue date: ${i.due}\n\n${i.notes?i.notes+'\n\n':''}Please quote ${i.number||'the project name'} with your payment.\nThank you,\n${i.issuer?.name||'TCG'}\n${i.issuer?.email||'umesh@tcg.ind.in'}`;}
 export function whatsappURL(i){const digits=i.client.phone.replace(/[^0-9]/g,'');requireThat(/^[1-9]\d{7,14}$/.test(digits),'Add the client WhatsApp number with country code, for example 919876543210.');return `https://wa.me/${digits}?text=${encodeURIComponent(whatsappMessage(i))}`;}

@@ -83,3 +83,9 @@ Money is calculated in integer paise. Payments, advances, refunds and correction
 Export a JSON backup regularly and keep it private. Clearing site data removes local records. Restore validates the backup and numbering and is allowed only in an empty workspace to avoid overwriting records or colliding invoice numbers. A localhost preview and `https://www.tcg.ind.in/billing` are different storage origins. To move records, export from the original browser/origin and restore once into the empty destination, then issue from only that destination. Existing records are never automatically moved or deleted.
 
 Validation: `node scripts/check-billing.mjs` exercises money, advances, payments, refunds, numbering, backup checks and WhatsApp encoding and generates synthetic PDF fixtures under `/tmp/tcg-billing-qa`. Browser QA covers draft creation, advance recording, issue, delivery status, work notes, sent marking, PDF export, backup export/restore and responsive layout. Synthetic QA data is not seeded on production.
+
+### Saved clients
+
+The **Clients** tab remembers names, company names, billing addresses, email addresses and WhatsApp numbers. Existing invoice clients are added to the directory once when upgrading. Add or edit a client, select them in a new invoice, or use **Create invoice** from their record. The invoice form's checked **Save these client details** option updates the directory when the draft is saved. Issued invoice snapshots are never rewritten. Archive hides a client from new-invoice choices, and **Archived clients** offers restore. Exported backups include the directory; older backups remain compatible. Restore requires an empty invoice ledger and an empty client directory.
+
+Checks: `node scripts/check-clients.mjs` covers migration, duplicate matching, edit conflicts, retained invoice snapshots, recovery and backup compatibility.
